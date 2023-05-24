@@ -1,0 +1,13 @@
+@startuml
+!theme bluegray
+title Deplacement Personnage à gauche
+participant "Main" as m
+participant "laby:Labyrinthe" as laby
+
+m -> laby : deplacerPerso("Gauche")
+activate laby
+  laby -> laby : getSuivant(courant[0],courant[1],"Gauche") : int[]
+  laby -> m
+deactivate laby
+
+@enduml
