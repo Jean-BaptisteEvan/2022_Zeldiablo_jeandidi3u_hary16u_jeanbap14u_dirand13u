@@ -6,6 +6,8 @@ package gameLaby.laby;
  */
 public class Perso implements Entite{
 
+    public final static String PERSO = "Perso";
+
     /**
      * position du personnage
      */
@@ -54,7 +56,4 @@ public class Perso implements Entite{
         return this.y;
     }
 
-    public String getNomEntite(){
-        return "Perso";
-    }
 }
