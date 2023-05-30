@@ -2,6 +2,7 @@ package gameLaby.laby;
 
 public class Monstre implements Entite{
 
+     public final static String MONSTRE = "Monstre";
     /**
      * position du monstre
      */
@@ -50,12 +51,7 @@ public class Monstre implements Entite{
         return this.y;
     }
 
-    /**
-     * @return la chaine "Monstre"
-     */
-    public String getNomEntite(){
-        return "Monstre";
-    }
+
 
 
 
