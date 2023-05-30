@@ -24,16 +24,16 @@ public class LabyJeu implements Jeu {
 
         // deplace la raquette en fonction des touches
         if (clavier.droite) {
-            this.labyrinthe.deplacerEntite(Perso.PERSO,Labyrinthe.DROITE);
+            this.labyrinthe.deplacerEntite(Labyrinthe.DROITE);
         }
         if (clavier.gauche) {
-            this.labyrinthe.deplacerEntite(Perso.PERSO,Labyrinthe.GAUCHE);
+            this.labyrinthe.deplacerEntite(Labyrinthe.GAUCHE);
         }
         if (clavier.haut) {
-            this.labyrinthe.deplacerEntite(Perso.PERSO,Labyrinthe.HAUT);
+            this.labyrinthe.deplacerEntite(Labyrinthe.HAUT);
         }
         if (clavier.bas) {
-            this.labyrinthe.deplacerEntite(Perso.PERSO,Labyrinthe.BAS);
+            this.labyrinthe.deplacerEntite(Labyrinthe.BAS);
         }
     }
 
