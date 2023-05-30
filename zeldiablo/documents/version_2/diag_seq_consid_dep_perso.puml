@@ -1,0 +1,19 @@
+@startuml
+
+title Considérer le monstre dans les déplacements du personnage
+participant "laby:Labyrinthe" as laby
+participant "deplacerPerso(String action)" as deplacerPerso
+--> laby
+activate laby
+  laby --> laby
+    activate deplacerPerso
+      alt presense d'un monstre
+        deplacerPerso --> deplacerPerso
+      end
+      laby <-- deplacerPerso
+    deactivate deplacerPerso
+  <-- laby  
+deactivate laby
+
+
+@enduml

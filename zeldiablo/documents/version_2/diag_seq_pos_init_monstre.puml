@@ -1,0 +1,24 @@
+@startuml
+title Donner une position initiale au monstre
+
+participant "main" as m
+participant "laby: Labyrinthe" as laby
+participant "monstre: Monstre" as monstre
+
+
+
+create laby
+m -> laby : new
+activate laby
+  loop boucle pour lire le laby
+    alt on trouve le M
+    create monstre
+      laby -> monstre : new(x,y)
+    end
+  end
+deactivate laby
+
+
+
+
+@enduml
