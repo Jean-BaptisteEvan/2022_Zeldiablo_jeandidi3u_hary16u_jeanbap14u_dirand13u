@@ -1,0 +1,9 @@
+@startuml
+title Afficher le monstre
+participant LabyDessin
+participant LabyJeu
+participant Labyrinthe
+participant Monstre
+
+
+@enduml

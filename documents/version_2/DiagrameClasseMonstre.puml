@@ -1,0 +1,41 @@
+@startuml
+package moteurJeu{
+interface Jeu{
++ init()
++ update(seconds: double, clavier: Clavier)
++ etreFini(): boolean
+}
+
+
+interface DessinJeu {
++ dessinerJeu(jeu: Jeu, canvas: Canvas)
+}
+}
+package gamelaby.laby{
+    class LabyDessin{
+        + dessinerJeu(jeu: Jeu, canvas: Canvas)
+    }
+
+DessinJeu <|.. LabyDessin
+    class LabyJeu{
+        +init()
+        +Labyjeu()
+        +update(seconds : double, clavier : Clavier)
+        +etreFini() : boolean
+        }
+
+Jeu <|.. LabyJeu
+
+    class Labyrinthe{
+        -murs : boolean[ ][ ]
+        +Labyrinthe(nom : String)
+        +getSuivant(x :int, y int, action : String ) : int[]
+
+    }
+    interface Entite {
+
+    }
+    }
+
+
+@enduml
