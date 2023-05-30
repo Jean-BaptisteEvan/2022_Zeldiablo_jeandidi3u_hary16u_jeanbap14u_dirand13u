@@ -6,6 +6,7 @@ import gameArkanoid.Raquette;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import moteurJeu.Jeu;
 import moteurJeu.DessinJeu;
 
@@ -37,11 +38,10 @@ public class LabyDessin implements DessinJeu {
             }
         }
         //dessin perso
-        double px = labyrinthe.getLabyrinthe().getPerso().getX();
-        double py = labyrinthe.getLabyrinthe().getPerso().getY();
+        double px = labyrinthe.getLabyrinthe().pj.getX();
+        double py = labyrinthe.getLabyrinthe().pj.getY();
         gc.setFill(Color.RED);
-        gc.fillRect(px * TAILLE,py * TAILLE, TAILLE,TAILLE);
-        gc.setFill(Color.BLACK);
+        gc.fillOval(px * TAILLE,py * TAILLE,TAILLE,TAILLE);
     }
 }
 

@@ -20,7 +20,7 @@ public class LabyJeu implements Jeu {
     /**
      * met a jour l'etat du jeu
      */
-    public void update(double secondes, Clavier clavier) {
+    public void update(double secondes,Clavier clavier) {
 
         // deplace la raquette en fonction des touches
         if (clavier.droite) {
@@ -57,6 +57,7 @@ public class LabyJeu implements Jeu {
     public Labyrinthe getLabyrinthe() {
         return this.labyrinthe;
     }
+
 
 }
 
