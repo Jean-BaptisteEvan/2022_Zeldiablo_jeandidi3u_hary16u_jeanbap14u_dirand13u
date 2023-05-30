@@ -1,3 +1,4 @@
+
 @startuml
 package moteurJeu{
 interface Jeu{
@@ -30,12 +31,48 @@ Jeu <|.. LabyJeu
         -murs : boolean[ ][ ]
         +Labyrinthe(nom : String)
         +getSuivant(x :int, y int, action : String ) : int[]
+        +deplacerPerso(action : String)
+        +etreFini() : boolean
+        +getLength() : int
+        +getLengthY() : int
 
     }
+LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
     interface Entite {
+        -x : int
+        -y : int
+        -nom : String
+        +etrePresent(dx : int, dy :int) : boolean
+        + getX() : int
+        + getY() : int
+        + getNomEntite() : String
 
     }
+    class Perso{
+    -x : int
+    -y : int
+    - nom : String
+    +etrePresent(dx : int, dy : int) : boolean
+    +getX() : int
+    +getY() : int
+    +getNomEntite() : String
     }
+    class Monstre{
+    -x : int
+    -y : int
+    -nom : String
+    +etrePresent(dx : int, dy : int) :boolean
+    +getX() : int
+    +getY() : int
+    +getNomEntite() : String
+    }
+ Entite <|.. Perso
+ Entite <|.. Monstre
+ Labyrinthe "1" --> "1" Perso : -pj
+ Labyrinthe "1" --> "1" Monstre : -monstre
+ LabyJeu <. LabyDessin:uses
+    }
+
 
 
 @enduml
