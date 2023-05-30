@@ -12,14 +12,16 @@ public class MainLaby  {
 
 
         // creation des objets
-        LabyJeu jeuLab = new LabyJeu("labySimple/laby1.txt",0,0);
+        LabyJeu jeuLab = new LabyJeu("labySimple/laby2.txt",0,0);
         LabyDessin dessinLab = new LabyDessin();
 
         // parametrage du moteur de jeu
         MoteurJeu.setTaille(LabyDessin.TAILLE * jeuLab.getLabyrinthe().getLength(),LabyDessin.TAILLE * jeuLab.getLabyrinthe().getLengthY());
-        MoteurJeu.setFPS(100);
+        MoteurJeu.setFPS(240);
 
         // lancement du jeu
         MoteurJeu.launch(jeuLab, dessinLab);
+
+
     }
 }

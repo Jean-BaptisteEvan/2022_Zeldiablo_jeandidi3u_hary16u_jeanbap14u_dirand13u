@@ -1,13 +1,9 @@
 package gameLaby.laby;
 
-
-/**
- * gere un personnage situe en x,y
- */
-public class Perso implements Entite{
+public class Monstre implements Entite{
 
     /**
-     * position du personnage
+     * position du monstre
      */
     int x, y;
 
@@ -17,7 +13,7 @@ public class Perso implements Entite{
      * @param dx position selon x
      * @param dy position selon y
      */
-    public Perso(int dx, int dy) {
+    public Monstre(int dx, int dy) {
         this.x = dx;
         this.y = dy;
     }
@@ -27,7 +23,7 @@ public class Perso implements Entite{
      *
      * @param dx position testee
      * @param dy position testee
-     * @return true si le personnage est bien en (dx,dy)
+     * @return true si le monste est bien en (dx,dy)
      */
     public boolean etrePresent(int dx, int dy) {
 
@@ -39,7 +35,7 @@ public class Perso implements Entite{
     // ############################################
 
     /**
-     * @return position x du personnage
+     * @return position x du monstre
      */
     public int getX() {
         // getter
@@ -47,10 +43,11 @@ public class Perso implements Entite{
     }
 
     /**
-     * @return position y du personnage
+     * @return position y du monstre
      */
     public int getY() {
         //getter
         return this.y;
     }
+
 }

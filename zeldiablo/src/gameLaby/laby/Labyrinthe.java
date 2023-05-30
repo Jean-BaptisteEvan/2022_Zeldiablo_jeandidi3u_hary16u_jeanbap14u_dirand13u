@@ -29,7 +29,9 @@ public class Labyrinthe {
     /**
      * attribut du personnage
      */
-    public Perso pj;
+    public Entite pj;
+
+    public Entite monstre;
 
     /**
      * les murs du labyrinthe
@@ -44,6 +46,9 @@ public class Labyrinthe {
      * @param action action effectuee
      * @return case suivante
      */
+
+
+
     static int[] getSuivant(int x, int y, String action) {
         switch (action) {
             case HAUT:
@@ -138,8 +143,11 @@ public class Labyrinthe {
      *
      * @param action une des actions possibles
      */
-    public void deplacerPerso(String action) {
+    public void deplacerEntite(Entite entite,String action) {
         // case courante
+        if(entite instanceof Perso){
+            this.pj = (Perso) this.pj;
+        }
         int[] courante = {this.pj.x, this.pj.y};
 
         // calcule case suivante
@@ -148,7 +156,7 @@ public class Labyrinthe {
         // si c'est pas un mur, on effectue le deplacement
         if (!this.murs[suivante[0]][suivante[1]]) {
             // on met a jour personnage
-            this.pj.x = suivante[0];
+            this.pj.g = suivante[0];
             this.pj.y = suivante[1];
         }
     }
@@ -196,9 +204,7 @@ public class Labyrinthe {
         return this.murs[x][y];
     }
 
-    public Perso getPerso(){
-        return this.pj;
-    }
+
 
 
 }
