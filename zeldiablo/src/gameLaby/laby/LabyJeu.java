@@ -4,13 +4,8 @@ import moteurJeu.Jeu;
 import java.io.IOException;
 
 public class LabyJeu implements Jeu {
-
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 600;
-
-
     private final Labyrinthe labyrinthe;
-    private final Perso perso;
+
 
 
     /**
@@ -18,7 +13,6 @@ public class LabyJeu implements Jeu {
      */
     public LabyJeu(String nom,int dx,int dy) throws IOException {
         this.labyrinthe = new Labyrinthe(nom);
-        this.perso = new Perso(dx,dy);
     }
 
 
@@ -64,8 +58,5 @@ public class LabyJeu implements Jeu {
         return this.labyrinthe;
     }
 
-    public Perso getPerso() {
-        return this.perso;
-    }
 }
-}
+

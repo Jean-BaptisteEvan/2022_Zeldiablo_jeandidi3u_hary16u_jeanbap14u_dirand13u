@@ -195,4 +195,10 @@ public class Labyrinthe {
         // utilise le tableau de boolean
         return this.murs[x][y];
     }
+
+    public Perso getPerso(){
+        return this.pj;
+    }
+
+
 }
