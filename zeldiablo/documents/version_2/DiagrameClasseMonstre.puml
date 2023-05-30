@@ -39,13 +39,10 @@ Jeu <|.. LabyJeu
     }
 LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
     interface Entite {
-        -x : int
-        -y : int
-        -nom : String
         +etrePresent(dx : int, dy :int) : boolean
         + getX() : int
         + getY() : int
-        + getNomEntite() : String
+
 
     }
     class Perso{
@@ -55,7 +52,7 @@ LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
     +etrePresent(dx : int, dy : int) : boolean
     +getX() : int
     +getY() : int
-    +getNomEntite() : String
+
     }
     class Monstre{
     -x : int
@@ -64,7 +61,7 @@ LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
     +etrePresent(dx : int, dy : int) :boolean
     +getX() : int
     +getY() : int
-    +getNomEntite() : String
+
     }
  Entite <|.. Perso
  Entite <|.. Monstre
