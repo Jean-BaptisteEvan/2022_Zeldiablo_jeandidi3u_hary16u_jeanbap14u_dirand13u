@@ -29,9 +29,9 @@ public class Labyrinthe {
     /**
      * attribut du personnage
      */
-    public Entite pj;
+    public Perso pj;
 
-    public Entite monstre;
+    public Monstre monstre;
 
     /**
      * les murs du labyrinthe
@@ -141,24 +141,39 @@ public class Labyrinthe {
      * deplace le personnage en fonction de l'action.
      * gere la collision avec les murs
      *
+     * @param entite type d'entite a deplacer
      * @param action une des actions possibles
+     *
      */
-    public void deplacerEntite(Entite entite,String action) {
-        // case courante
-        if(entite instanceof Perso){
-            this.pj = (Perso) this.pj;
-        }
-        int[] courante = {this.pj.x, this.pj.y};
+    public void deplacerEntite(String entite,String action) {
+        if(entite == "Perso"){
+            int[] courante = {this.pj.x, this.pj.y};
 
-        // calcule case suivante
-        int[] suivante = getSuivant(courante[0], courante[1], action);
+            // calcule case suivante
+            int[] suivante = getSuivant(courante[0], courante[1], action);
 
-        // si c'est pas un mur, on effectue le deplacement
-        if (!this.murs[suivante[0]][suivante[1]]) {
-            // on met a jour personnage
-            this.pj.g = suivante[0];
-            this.pj.y = suivante[1];
+            // si c'est ni un mur ni un monstre, on effectue le deplacement du personnage
+            if (!this.murs[suivante[0]][suivante[1]] && this.monstre.getX() != suivante[0] && this.monstre.getY() != suivante[1]) {
+                // on met a jour le personnage
+                this.pj.x = suivante[0];
+                this.pj.y = suivante[1];
+            }
+        }else if(entite == "Monstre") {
+            String[] actions = {HAUT,BAS,GAUCHE,DROITE};
+            String actionAleatoire = actions[(int) (Math.random() * actions.length)];
+            int[] courante = {this.monstre.x, this.pj.y};
+
+            //calcule case suivante
+            int[] suivante = getSuivant(courante[0], courante[1], actionAleatoire);
+
+            // si c'est ni un mur ni un personnage, on effectue le deplacement du monstre
+            if (!this.murs[suivante[0]][suivante[1]] && this.pj.getX() != suivante[0] && this.pj.getY() != suivante[1]){
+                // on met a jour le monstre
+                this.monstre.x = suivante[0];
+                this.monstre.y = suivante[1];
+            }
         }
+
     }
 
 

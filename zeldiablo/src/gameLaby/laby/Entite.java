@@ -8,5 +8,7 @@ public interface Entite {
 
     public int getY();
 
+    public String getNomEntite();
+
 
 }

@@ -53,4 +53,8 @@ public class Perso implements Entite{
         //getter
         return this.y;
     }
+
+    public String getNomEntite(){
+        return "Perso";
+    }
 }

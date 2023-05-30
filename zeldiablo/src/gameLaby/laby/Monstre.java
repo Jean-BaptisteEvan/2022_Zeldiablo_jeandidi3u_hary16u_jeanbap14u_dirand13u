@@ -8,7 +8,7 @@ public class Monstre implements Entite{
     int x, y;
 
     /**
-     * constructeur
+     * constructeur du monstre
      *
      * @param dx position selon x
      * @param dy position selon y
@@ -19,11 +19,11 @@ public class Monstre implements Entite{
     }
 
     /**
-     * permet de savoir si le personnage est en x,y
+     * permet de savoir si le monstre est en x,y
      *
      * @param dx position testee
      * @param dy position testee
-     * @return true si le monste est bien en (dx,dy)
+     * @return true si le monstre est bien en (dx,dy)
      */
     public boolean etrePresent(int dx, int dy) {
 
@@ -49,5 +49,14 @@ public class Monstre implements Entite{
         //getter
         return this.y;
     }
+
+    /**
+     * @return la chaine "Monstre"
+     */
+    public String getNomEntite(){
+        return "Monstre";
+    }
+
+
 
 }
