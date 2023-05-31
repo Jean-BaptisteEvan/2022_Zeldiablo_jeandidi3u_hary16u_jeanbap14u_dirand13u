@@ -16,7 +16,7 @@ public class Perso implements Entite{
     /**
      * vie du personnage
      */
-    private int vie =3;
+    private int vie =5;
 
     private boolean amuletteTrouve;
 
@@ -74,7 +74,11 @@ public class Perso implements Entite{
     // ############################################
 
     public void setVie(int pv){
-        this.vie = this.vie + pv;
+        if(this.vie + pv<0){
+            this.vie = 0;
+        }else {
+            this.vie = this.vie + pv;
+        }
     }
 
     public boolean getAmuletteTrouve() {
