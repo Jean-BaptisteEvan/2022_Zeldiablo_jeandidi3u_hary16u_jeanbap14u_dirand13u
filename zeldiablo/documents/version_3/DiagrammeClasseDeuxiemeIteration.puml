@@ -1,5 +1,11 @@
 
 @startuml
+skinparam class{
+    backgroundColor<<Nouveau>> Pink
+    borderColor<<Nouveau>>  Black
+    backgroundColor<<Modifie>> LightGreen
+    borderColor<<Modifie>>  Black
+}
 package moteurJeu{
 interface Jeu{
 + init()
@@ -46,7 +52,7 @@ LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
 
 
     }
-    class Perso{
+    class Perso <<Modifie>>{
     -x : int
     -y : int
     -vie : int
@@ -66,7 +72,7 @@ LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
     +getY() : int
 
     }
-    class Amulette{
+    class Amulette<<nouveau>>{
         -x : int
         -y : int
         -AMULETTE : String
