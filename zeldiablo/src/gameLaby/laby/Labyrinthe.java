@@ -165,21 +165,33 @@ public class Labyrinthe {
             this.pj.x = suivante[0];
             this.pj.y = suivante[1];
         }
+        if(etreColler()){
+            this.pj.setVie(-1);
+        }else {
+            String[] actions = {HAUT, BAS, GAUCHE, DROITE};
+            String actionAleatoire = actions[(int) (Math.random() * actions.length)];
+            int[] couranteMonstre = {this.monstre.x, this.monstre.y};
 
-        String[] actions = {HAUT,BAS,GAUCHE,DROITE};
-        String actionAleatoire = actions[(int) (Math.random() * actions.length)];
-        int[] couranteMonstre = {this.monstre.x, this.monstre.y};
+            //calcule case suivante
+            suivante = getSuivant(couranteMonstre[0], couranteMonstre[1], actionAleatoire);
 
-        //calcule case suivante
-        suivante = getSuivant(couranteMonstre[0], couranteMonstre[1], actionAleatoire);
-
-           // si c'est ni un mur ni un personnage, on effectue le deplacement du monstre
-        if (!this.murs[suivante[0]][suivante[1]] && (this.pj.getX() != suivante[0] || this.pj.getY() != suivante[1])){
-            // on met a jour le monstre
-            this.monstre.x = suivante[0];
-            this.monstre.y = suivante[1];
+            // si c'est ni un mur ni un personnage, on effectue le deplacement du monstre
+            if (!this.murs[suivante[0]][suivante[1]] && (this.pj.getX() != suivante[0] || this.pj.getY() != suivante[1])) {
+                // on met a jour le monstre
+                this.monstre.x = suivante[0];
+                this.monstre.y = suivante[1];
+            }
         }
+    }
 
+    public boolean etreColler(){
+        Monstre m = this.monstre;
+        Perso p = this.pj;
+        if((m.getX()==p.getX()+1)||(m.getX()==p.getX()-1)||(m.getY()==p.getY()+1)||(m.getY()==p.getY()-1)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 

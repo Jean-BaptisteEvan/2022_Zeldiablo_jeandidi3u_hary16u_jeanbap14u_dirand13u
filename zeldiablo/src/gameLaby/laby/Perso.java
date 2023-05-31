@@ -65,4 +65,13 @@ public class Perso implements Entite{
         return this.y;
     }
 
+
+    // ############################################
+    // SETTER
+    // ############################################
+
+    public void setVie(int pv){
+        this.vie = this.vie + pv;
+    }
+
 }
