@@ -7,8 +7,6 @@ participant "canvas:Canvas" as canvas
 
 participant "gc:GraphiqueContext2D" as gc
 
-
-
 ->dessin : dessinerJeu(jeu,canvas)
 activate dessin
 
@@ -22,21 +20,11 @@ activate jeu
 dessin <-- jeu: Labyrinthe
 deactivate jeu
 
-dessin-> Monstre : Monstre.getY()
-activate Monstre
-dessin<--Monstre
-deactivate Monstre
-dessin-> Monstre : Monstre.getX()
-activate Monstre
-dessin<--Monstre
-deactivate Monstre
-
-gc<-dessin : monstre.setFill(Color.Purple)
+gc<-dessin : gc.setFill(Color.vert)
 activate gc
 gc-->dessin
-
 deactivate gc
-gc<-dessin :monstre.setFillOval(mx,my,taille,taille)
+gc<-dessin :gc.setFillOval(Amulette.getX(),Amulette.getY(),hauteur,largeur)
 activate gc
 
 gc-->dessin
