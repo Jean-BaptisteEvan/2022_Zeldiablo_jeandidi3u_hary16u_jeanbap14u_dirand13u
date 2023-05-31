@@ -164,10 +164,8 @@ public class MoteurJeu extends Application {
                 // mesure le temps ecoule depuis la derniere mise a jour
                 long elapsedTime = timestamp - lastUpdateTime.get();
                 double dureeEnMilliSecondes = elapsedTime / 1_000_000.0;
-
-                boolean fin = jeu.etreFini();
-                if (fin){
-                    System.out.println("YOU DIED");
+                
+                if (jeu.etreFini()){
                     stop();
                 }
 

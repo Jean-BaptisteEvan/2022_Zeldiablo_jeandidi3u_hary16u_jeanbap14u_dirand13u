@@ -3,6 +3,7 @@ package gameLaby.laby;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLOutput;
 
 /**
  * classe labyrinthe. represente un labyrinthe avec
@@ -225,10 +226,15 @@ public class Labyrinthe {
      * @return fin du jeu
      */
     public boolean etreFini() {
-        if (pj.getVie()<=0){
-            return true;
+        boolean fini = false;
+        if (pj.getVie() <= 0) {
+            fini = true;
+            System.out.println("YOU DIED");
+        } else if (this.pj.etrePresent(this.depart.getX(), this.depart.getY()) && this.pj.getAmuletteTrouve()){
+            fini = true;
+            System.out.println("VICTORY");
         }
-        return false;
+        return fini;
     }
 
     // ##################################
