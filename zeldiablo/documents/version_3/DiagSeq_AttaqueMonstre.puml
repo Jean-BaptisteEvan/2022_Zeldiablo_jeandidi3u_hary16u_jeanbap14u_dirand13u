@@ -9,10 +9,7 @@ activate laby
 
   laby --> deplacer : deplacer(String action)
     activate deplacer
-      deplacer  --> m : etreColler()
-          activate m
-          m --> deplacer : bColler
-          deactivate m
+      deplacer  --> deplacer : etreColler()
       alt bColler = true
 
         deplacer --> perso : setPv(-1)
