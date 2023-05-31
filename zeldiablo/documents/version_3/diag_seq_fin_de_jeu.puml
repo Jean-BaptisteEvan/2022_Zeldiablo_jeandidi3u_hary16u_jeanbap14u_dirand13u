@@ -1,0 +1,25 @@
+@startuml
+title fin de jeu
+
+participant "main" as m
+participant "laby: Labyrinthe" as laby
+participant "perso: Personnage" as perso
+
+m -> laby : etreFini()
+activate laby
+  laby -> perso : getVie()
+    activate perso
+
+    laby <-- perso : vie
+  deactivate perso
+
+  alt getVie==0
+    laby --> laby
+  end
+
+
+  m <-- laby
+deactivate laby
+
+
+@enduml
