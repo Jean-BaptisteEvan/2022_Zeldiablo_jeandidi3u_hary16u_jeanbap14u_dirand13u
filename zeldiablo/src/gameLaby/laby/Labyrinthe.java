@@ -37,6 +37,8 @@ public class Labyrinthe {
 
     public Amulette amulette;
 
+    public Depart depart;
+
     /**
      * les murs du labyrinthe
      */
@@ -124,6 +126,7 @@ public class Labyrinthe {
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
                         this.pj = new Perso(colonne, numeroLigne);
+                        this.depart = new Depart(colonne, numeroLigne);
                         break;
 
                     case MONSTRE:

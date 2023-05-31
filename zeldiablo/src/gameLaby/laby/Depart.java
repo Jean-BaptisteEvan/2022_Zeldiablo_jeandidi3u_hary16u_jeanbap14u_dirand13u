@@ -1,6 +1,6 @@
 package gameLaby.laby;
 
-public class Amulette extends Entite {
+public class Depart extends Entite {
 
     public final static String AMULETTE = "Amulette";
 
@@ -10,7 +10,7 @@ public class Amulette extends Entite {
      * @param dx Position selon x
      * @param dy Position selon y
      */
-    public Amulette(int dx, int dy) {
+    public Depart(int dx, int dy) {
         super(dx,dy);
     }
 

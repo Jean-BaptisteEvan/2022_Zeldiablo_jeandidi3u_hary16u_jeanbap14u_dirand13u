@@ -37,28 +37,35 @@ public class LabyDessin implements DessinJeu {
                 }
             }
         }
+        //dessin depart
+        double px = labyrinthe.getLabyrinthe().depart.getX();
+        double py = labyrinthe.getLabyrinthe().depart.getY();
+        gc.setFill(Color.YELLOW);
+        gc.fillRect(px * TAILLE, py * TAILLE, TAILLE, TAILLE);
+
         //dessin perso
-        double px = labyrinthe.getLabyrinthe().pj.getX();
-        double py = labyrinthe.getLabyrinthe().pj.getY();
+        px = labyrinthe.getLabyrinthe().pj.getX();
+        py = labyrinthe.getLabyrinthe().pj.getY();
 
         gc.setFill(Color.RED);
         gc.fillOval(px * TAILLE,py * TAILLE,TAILLE,TAILLE);
+
         //dessin monstre
-        double mx = labyrinthe.getLabyrinthe().monstre.getX();
-        double my = labyrinthe.getLabyrinthe().monstre.getY();
+        px = labyrinthe.getLabyrinthe().monstre.getX();
+        py = labyrinthe.getLabyrinthe().monstre.getY();
         gc.setFill(Color.PURPLE);
-        gc.fillOval(mx * TAILLE,my * TAILLE,TAILLE,TAILLE);
+        gc.fillOval(px * TAILLE,py * TAILLE,TAILLE,TAILLE);
 
 
-
-        double ax = labyrinthe.getLabyrinthe().amulette.getX();
-        double ay = labyrinthe.getLabyrinthe().amulette.getY();
+        //dessin Amulette
+        px = labyrinthe.getLabyrinthe().amulette.getX();
+        py = labyrinthe.getLabyrinthe().amulette.getY();
         gc.setFill(Color.GREEN);
-        gc.fillOval(ax*TAILLE, ay*TAILLE, TAILLE/2, TAILLE/2);
-        double ex = labyrinthe.getLabyrinthe().emplalx();
-        double ey = labyrinthe.getLabyrinthe().emplaly();
-        gc.setFill(Color.YELLOW);
-        gc.fillRect(ex*TAILLE, ey*TAILLE, TAILLE, TAILLE);
+        gc.fillOval(px * TAILLE, py * TAILLE, TAILLE/2, TAILLE/2);
+//        double ex = labyrinthe.getLabyrinthe().emplalx();
+//        double ey = labyrinthe.getLabyrinthe().emplaly();
+//        gc.setFill(Color.YELLOW);
+//        gc.fillRect(ex*TAILLE, ey*TAILLE, TAILLE, TAILLE);
     }
 }
 

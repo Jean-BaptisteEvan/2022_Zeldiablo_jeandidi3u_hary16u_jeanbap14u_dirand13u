@@ -1,46 +1,32 @@
 package gameLaby.laby;
 
+public class Perso extends Entite {
 
-/**
- * gere un personnage situe en x,y
- */
-public class Perso implements Entite{
+    public final static String PERSONNAGE = "Personnage";
 
-    public final static String PERSO = "Perso";
-
-    /**
-     * position du personnage
-     */
-    int x, y;
-
-    /**
-     * vie du personnage
-     */
-    private int vie =5;
-
+    private int vie = 5;
     private boolean amuletteTrouve;
 
     /**
-     * constructeur
+     * Constructeur du personnage
      *
-     * @param dx position selon x
-     * @param dy position selon y
+     * @param dx Position selon x
+     * @param dy Position selon y
      */
     public Perso(int dx, int dy) {
-        this.x = dx;
-        this.y = dy;
+        super(dx, dy);
         this.amuletteTrouve = false;
     }
 
     /**
-     * permet de savoir si le personnage est en x,y
+     * Permet de savoir si le personnage est en x, y
      *
-     * @param dx position testee
-     * @param dy position testee
-     * @return true si le personnage est bien en (dx,dy)
+     * @param dx Position testée
+     * @param dy Position testée
+     * @return vrai si le personnage est bien en (dx, dy)
      */
+    @Override
     public boolean etrePresent(int dx, int dy) {
-
         return (this.x == dx && this.y == dy);
     }
 
@@ -52,22 +38,9 @@ public class Perso implements Entite{
         return this.vie;
     }
 
-    /**
-     * @return position x du personnage
-     */
-    public int getX() {
-        // getter
-        return this.x;
+    public boolean getAmuletteTrouve() {
+        return amuletteTrouve;
     }
-
-    /**
-     * @return position y du personnage
-     */
-    public int getY() {
-        //getter
-        return this.y;
-    }
-
 
     // ############################################
     // SETTER
@@ -81,9 +54,9 @@ public class Perso implements Entite{
         }
     }
     public void setAmuletteTrouve(boolean t){
-        this.amuletteTrouve=t;
+        this.amuletteTrouve = t;
     }
-    public boolean getAmuletteTrouve() {
-        return amuletteTrouve;
-    }
+
+
+
 }
