@@ -220,8 +220,8 @@ public class Labyrinthe {
      * @return fin du jeu
      */
     public boolean etreFini() {
-        int vie = this.pj.getVie();
-        if (vie<=0){
+        System.out.println(pj.getVie());
+        if (pj.getVie()<=0){
             return true;
         }
         return false;
