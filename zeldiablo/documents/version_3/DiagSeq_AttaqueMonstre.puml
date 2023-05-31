@@ -2,29 +2,27 @@
 
 title attaque d'un monstre
 participant "laby:Labyrinthe" as laby
-participant "deplacerEntite(String action)" as deplacer
---> laby
 participant "p:Perso" as perso
+participant "m:Monstre" as m
+-> laby : deplacerEntite(String action)
 activate laby
-
-  laby --> deplacer : deplacer(String action)
-    activate deplacer
-      deplacer  --> deplacer : etreColler()
+        laby -> laby : etreColler() : bColler
       alt bColler = true
-
-        deplacer --> perso : setPv(-1)
-        activate perso
-        perso --> deplacer
-        deactivate perso
+           laby -> perso : setVie(-1)
+           activate perso
+           perso --> laby
+           deactivate perso
       else bColler = false
-        deplacer --> m : deplacerMonstre
-        activate m
-        m --> deplacer
-        deactivate m
+            laby -> m : setX()
+            activate m
+            laby <-- m
+            deactivate m
+            laby -> m : setY()
+            activate m
+            laby <-- m
+            deactivate m
 
       end
-      laby <-- deplacer
-    deactivate deplacer
   <-- laby
 deactivate laby
 
