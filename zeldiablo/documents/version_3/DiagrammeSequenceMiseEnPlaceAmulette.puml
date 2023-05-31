@@ -1,37 +1,26 @@
 @startuml
-participant "dessin:LabyDessin" as dessin
+title:"Recupérer amulette"
 
-participant "jeu:LabyJeu" as jeu
-
-participant "canvas:Canvas" as canvas
-
-participant "gc:GraphiqueContext2D" as gc
-
-->dessin : dessinerJeu(jeu,canvas)
-activate dessin
-
-dessin->canvas : getGraphicContext2D()
-activate canvas
-canvas-->dessin :GraphiqueContext2D gc
-    deactivate canvas
-
-dessin->jeu :getLaby()
-activate jeu
-dessin <-- jeu: Labyrinthe
-deactivate jeu
-
-gc<-dessin : gc.setFill(Color.vert)
-activate gc
-gc-->dessin
-deactivate gc
-gc<-dessin :gc.setFillOval(Amulette.getX(),Amulette.getY(),hauteur,largeur)
-activate gc
-
-gc-->dessin
-deactivate gc
+participant labyrinthe
+participant personnage
+participant amulette
 
 
+->labyrinthe:deplacerEntite(Direction d)
+activate labyrinthe
 
-<--dessin
-    deactivate dessin
+labyrinthe->amulette:etrePresent(int dxg,int dyg)
+
+activate amulette
+labyrinthe<--amulette:boolean
+deactivate amulette
+alt boolean=true
+labyrinthe->personnage:amuletteTrouve = true
+activate personnage
+labyrinthe<--personnage:amulette.getX() = perso.getX()
+labyrinthe<--personnage:amulette.getY() = perso.getY()
+deactivate personnage
+end
+<--labyrinthe
+deactivate labyrinthe
 @enduml

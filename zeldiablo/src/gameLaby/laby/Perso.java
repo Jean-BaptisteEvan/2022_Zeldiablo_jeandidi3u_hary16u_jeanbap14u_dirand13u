@@ -14,6 +14,11 @@ public class Perso implements Entite{
     int x, y;
 
     /**
+     * vie du personnage
+     */
+    private int vie =3;
+
+    /**
      * constructeur
      *
      * @param dx position selon x
@@ -40,6 +45,10 @@ public class Perso implements Entite{
     // GETTER
     // ############################################
 
+    public int getVie(){
+        return this.vie;
+    }
+
     /**
      * @return position x du personnage
      */
@@ -54,6 +63,15 @@ public class Perso implements Entite{
     public int getY() {
         //getter
         return this.y;
+    }
+
+
+    // ############################################
+    // SETTER
+    // ############################################
+
+    public void setVie(int pv){
+        this.vie = this.vie + pv;
     }
 
 }

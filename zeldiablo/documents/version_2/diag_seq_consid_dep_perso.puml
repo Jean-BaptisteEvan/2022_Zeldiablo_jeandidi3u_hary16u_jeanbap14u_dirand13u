@@ -5,7 +5,7 @@ participant "laby:Labyrinthe" as laby
 participant "deplacerPerso(String action)" as deplacerPerso
 --> laby
 activate laby
-  laby --> laby
+  laby --> deplacerPerso
     activate deplacerPerso
       alt presense d'un monstre
         deplacerPerso --> deplacerPerso
