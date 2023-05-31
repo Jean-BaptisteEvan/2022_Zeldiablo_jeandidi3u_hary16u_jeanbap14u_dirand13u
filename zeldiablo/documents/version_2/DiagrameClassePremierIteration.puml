@@ -1,5 +1,11 @@
 
 @startuml
+skinparam class{
+    backgroundColor<<Nouveau>> Pink
+    borderColor<<Nouveau>>  Black
+    backgroundColor<<Modifie>> LightGreen
+    borderColor<<Modifie>>  Black
+}
 package moteurJeu{
 interface Jeu{
 + init()
@@ -27,7 +33,7 @@ DessinJeu <|.. LabyDessin
 
 Jeu <|.. LabyJeu
 
-    class Labyrinthe{
+    class Labyrinthe <<Modifie>>{
         -murs : boolean[ ][ ]
         +Labyrinthe(nom : String)
         +getSuivant(x :int, y int, action : String ) : int[]
@@ -38,14 +44,14 @@ Jeu <|.. LabyJeu
 
     }
 LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
-    interface Entite {
+    interface Entite <<Nouveau>>{
         +etrePresent(dx : int, dy :int) : boolean
         + getX() : int
         + getY() : int
 
 
     }
-    class Perso{
+    class Perso <<Modifie>>{
     -x : int
     -y : int
     - PERSO : String
@@ -54,7 +60,7 @@ LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
     +getY() : int
 
     }
-    class Monstre{
+    class Monstre<<Nouveau>>{
     -x : int
     -y : int
     -MONSTRE : String

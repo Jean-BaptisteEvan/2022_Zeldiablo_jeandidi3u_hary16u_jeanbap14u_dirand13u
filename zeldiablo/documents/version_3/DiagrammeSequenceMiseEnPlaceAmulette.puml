@@ -1,0 +1,37 @@
+@startuml
+participant "dessin:LabyDessin" as dessin
+
+participant "jeu:LabyJeu" as jeu
+
+participant "canvas:Canvas" as canvas
+
+participant "gc:GraphiqueContext2D" as gc
+
+->dessin : dessinerJeu(jeu,canvas)
+activate dessin
+
+dessin->canvas : getGraphicContext2D()
+activate canvas
+canvas-->dessin :GraphiqueContext2D gc
+    deactivate canvas
+
+dessin->jeu :getLaby()
+activate jeu
+dessin <-- jeu: Labyrinthe
+deactivate jeu
+
+gc<-dessin : gc.setFill(Color.vert)
+activate gc
+gc-->dessin
+deactivate gc
+gc<-dessin :gc.setFillOval(Amulette.getX(),Amulette.getY(),hauteur,largeur)
+activate gc
+
+gc-->dessin
+deactivate gc
+
+
+
+<--dessin
+    deactivate dessin
+@enduml
