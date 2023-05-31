@@ -31,7 +31,7 @@ Jeu <|.. LabyJeu
         -murs : boolean[ ][ ]
         +Labyrinthe(nom : String)
         +getSuivant(x :int, y int, action : String ) : int[]
-        +deplacerPerso(action : String)
+        +deplacerEntite(action : String)
         +etreFini() : boolean
         +getLength() : int
         +getLengthY() : int
@@ -48,25 +48,39 @@ LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
     class Perso{
     -x : int
     -y : int
-    - nom : String
+    - PERSO : String
     +etrePresent(dx : int, dy : int) : boolean
     +getX() : int
     +getY() : int
+    +getBombes() : int
 
     }
     class Monstre{
     -x : int
     -y : int
-    -nom : String
+    -MONSTRE : String
     +etrePresent(dx : int, dy : int) :boolean
     +getX() : int
     +getY() : int
 
     }
+    class Bombe{
+    -x : int
+    -y : int
+    -timer : int
+        -BOMBE : String
+        +etrePresent(dx : int, dy : int) :boolean
+        +getX() : int
+        +getY() : int
+        +getTimer() : int
+
+    }
  Entite <|.. Perso
  Entite <|.. Monstre
+ Entite <|.. Bombe
  Labyrinthe "1" --> "1" Perso : -pj
  Labyrinthe "1" --> "1" Monstre : -monstre
+ Perso "1" --> "*" Bombe : -bombes
  LabyJeu <. LabyDessin:uses
     }
 
