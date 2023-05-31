@@ -40,6 +40,7 @@ public class LabyDessin implements DessinJeu {
         //dessin perso
         double px = labyrinthe.getLabyrinthe().pj.getX();
         double py = labyrinthe.getLabyrinthe().pj.getY();
+
         gc.setFill(Color.RED);
         gc.fillOval(px * TAILLE,py * TAILLE,TAILLE,TAILLE);
         //dessin monstre
@@ -47,6 +48,17 @@ public class LabyDessin implements DessinJeu {
         double my = labyrinthe.getLabyrinthe().monstre.getY();
         gc.setFill(Color.PURPLE);
         gc.fillOval(mx * TAILLE,my * TAILLE,TAILLE,TAILLE);
+
+
+
+        double ax = labyrinthe.getLabyrinthe().amulette.getX();
+        double ay = labyrinthe.getLabyrinthe().amulette.getY();
+        gc.setFill(Color.GREEN);
+        gc.fillOval(ax*TAILLE, ay*TAILLE, TAILLE/2, TAILLE/2);
+        double ex = labyrinthe.getLabyrinthe().emplalx();
+        double ey = labyrinthe.getLabyrinthe().emplaly();
+        gc.setFill(Color.YELLOW);
+        gc.fillRect(ex*TAILLE, ey*TAILLE, TAILLE, TAILLE);
     }
 }
 

@@ -33,7 +33,7 @@ DessinJeu <|.. LabyDessin
 
 Jeu <|.. LabyJeu
 
-    class Labyrinthe{
+    class Labyrinthe <<Modifie>>{
         -murs : boolean[ ][ ]
         +Labyrinthe(nom : String)
         +getSuivant(x :int, y int, action : String ) : int[]
@@ -41,6 +41,7 @@ Jeu <|.. LabyJeu
         +etreFini() : boolean
         +getLength() : int
         +getLengthY() : int
+        +etreColler() : boolean
 
     }
 LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
@@ -56,12 +57,14 @@ LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
     -x : int
     -y : int
     -vie : int
-    +Acamulette
+    -AcAmulette : boolean
     - PERSO : String
     +etrePresent(dx : int, dy : int) : boolean
     +getX() : int
     +getY() : int
     +getVie() : int
+    +setVie(pv : int)
+
 
     }
     class Monstre{

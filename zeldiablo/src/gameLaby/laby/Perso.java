@@ -80,7 +80,9 @@ public class Perso implements Entite{
             this.vie = this.vie + pv;
         }
     }
-
+    public void setAmuletteTrouve(boolean t){
+        this.amuletteTrouve=t;
+    }
     public boolean getAmuletteTrouve() {
         return amuletteTrouve;
     }

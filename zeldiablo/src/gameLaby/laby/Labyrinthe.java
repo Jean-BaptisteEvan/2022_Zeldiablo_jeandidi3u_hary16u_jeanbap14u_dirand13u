@@ -191,10 +191,11 @@ public class Labyrinthe {
                 this.monstre.y = suivante[1];
             }
         }
-        if(this.pj.getAmuletteTrouve()){
-            this.amulette.x = this.pj.x;
-            this.amulette.y = this.pj.y;
+        if(this.amulette.etrePresent(this.pj.getX(),pj.getY())){
+            this.pj.setAmuletteTrouve(true);
         }
+        TrouverAmulette();
+
     }
 
     public boolean etreColler(){
@@ -208,8 +209,9 @@ public class Labyrinthe {
     }
 
     public void TrouverAmulette(){
-        if(this.amulette.etrePresent(this.pj.getX(),pj.getY())){
-             this.pj.getAmuletteTrouve();
+        if(this.pj.getAmuletteTrouve()){
+            this.amulette.x = this.pj.x;
+            this.amulette.y = this.pj.y;
         }
     }
 
@@ -260,7 +262,7 @@ public class Labyrinthe {
         return this.murs[x][y];
     }
 
-
+    
 
 
 }
