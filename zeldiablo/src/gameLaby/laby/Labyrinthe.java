@@ -18,6 +18,7 @@ public class Labyrinthe {
     public static final char PJ = 'P';
     public static final char VIDE = '.';
     public static final char MONSTRE = 'M';
+    public static final char AMULETTE = 'A';
 
     /**
      * constantes actions possibles
@@ -33,6 +34,8 @@ public class Labyrinthe {
     public Perso pj;
 
     public Monstre monstre;
+
+    public Amulette amulette;
 
     /**
      * les murs du labyrinthe
@@ -129,6 +132,12 @@ public class Labyrinthe {
                         //ajoute MONSTRE
                         this.monstre = new Monstre(colonne, numeroLigne);
                         break;
+                    case AMULETTE:
+                        //pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        //ajoute amulette
+                        this.amulette = new Amulette(colonne, numeroLigne);
+                        break;
 
                     default:
                         throw new Error("caractere inconnu " + c);
@@ -149,7 +158,7 @@ public class Labyrinthe {
      * deplace le personnage en fonction de l'action.
      * gere la collision avec les murs
      *
-     * @param entite type d'entite a deplacer
+     *
      * @param action une des actions possibles
      *
      */
@@ -182,6 +191,10 @@ public class Labyrinthe {
                 this.monstre.y = suivante[1];
             }
         }
+        if(this.pj.getAmuletteTrouve()){
+            this.amulette.x = this.pj.x;
+            this.amulette.y = this.pj.y;
+        }
     }
 
     public boolean etreColler(){
@@ -191,6 +204,12 @@ public class Labyrinthe {
             return true;
         }else{
             return false;
+        }
+    }
+
+    public void TrouverAmulette(){
+        if(this.amulette.etrePresent(this.pj.getX(),pj.getY())){
+             this.pj.getAmuletteTrouve();
         }
     }
 

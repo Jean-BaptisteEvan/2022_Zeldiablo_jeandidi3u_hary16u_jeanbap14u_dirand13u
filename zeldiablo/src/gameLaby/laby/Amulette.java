@@ -13,7 +13,7 @@ public class Amulette implements Entite {
      * @param dx position selon x
      * @param dy position selon y
      */
-    public void Entite(int dx, int dy) {
+    public Amulette(int dx, int dy) {
         this.x = dx;
         this.y = dy;
     }
@@ -49,5 +49,6 @@ public class Amulette implements Entite {
         //getter
         return this.y;
     }
+
 
 }

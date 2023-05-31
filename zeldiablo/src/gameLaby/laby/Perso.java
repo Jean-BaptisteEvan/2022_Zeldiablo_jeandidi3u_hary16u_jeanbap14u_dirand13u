@@ -18,6 +18,8 @@ public class Perso implements Entite{
      */
     private int vie =3;
 
+    private boolean amuletteTrouve;
+
     /**
      * constructeur
      *
@@ -27,6 +29,7 @@ public class Perso implements Entite{
     public Perso(int dx, int dy) {
         this.x = dx;
         this.y = dy;
+        this.amuletteTrouve = false;
     }
 
     /**
@@ -74,4 +77,7 @@ public class Perso implements Entite{
         this.vie = this.vie + pv;
     }
 
+    public boolean getAmuletteTrouve() {
+        return amuletteTrouve;
+    }
 }
