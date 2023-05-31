@@ -56,6 +56,7 @@ LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
     -x : int
     -y : int
     -vie : int
+    +Acamulette
     - PERSO : String
     +etrePresent(dx : int, dy : int) : boolean
     +getX() : int
