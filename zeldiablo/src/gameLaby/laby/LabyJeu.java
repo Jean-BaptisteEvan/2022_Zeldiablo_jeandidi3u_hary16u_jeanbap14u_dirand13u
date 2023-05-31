@@ -45,8 +45,7 @@ public class LabyJeu implements Jeu {
 
     @Override
     public boolean etreFini() {
-        // le jeu ne s'arrete jamais
-        return false;
+        return this.labyrinthe.etreFini();
     }
 
 

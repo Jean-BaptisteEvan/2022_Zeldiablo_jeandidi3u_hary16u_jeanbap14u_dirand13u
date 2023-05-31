@@ -201,7 +201,7 @@ public class Labyrinthe {
     public boolean etreColler(){
         Monstre m = this.monstre;
         Perso p = this.pj;
-        if((m.getX()==p.getX()+1)||(m.getX()==p.getX()-1)||(m.getY()==p.getY()+1)||(m.getY()==p.getY()-1)){
+        if((m.getX()==p.getX()+1)&&(m.getY()==p.getY())||(m.getX()==p.getX()-1)&&(m.getY()==p.getY())||(m.getX()==p.getX())&&(m.getY()==p.getY()-1)||(m.getX()==p.getX())&&(m.getY()==p.getY()+1)){
             return true;
         }else{
             return false;
@@ -222,8 +222,7 @@ public class Labyrinthe {
      * @return fin du jeu
      */
     public boolean etreFini() {
-        int vie = this.pj.getVie();
-        if (vie<=0){
+        if (pj.getVie()<=0){
             return true;
         }
         return false;

@@ -165,6 +165,12 @@ public class MoteurJeu extends Application {
                 long elapsedTime = timestamp - lastUpdateTime.get();
                 double dureeEnMilliSecondes = elapsedTime / 1_000_000.0;
 
+                boolean fin = jeu.etreFini();
+                if (fin){
+                    System.out.println("YOU DIED");
+                    stop();
+                }
+
 
                 // si le temps ecoule depasse le necessaire pour FPS souhaite
                 if (dureeEnMilliSecondes > dureeFPS) {
@@ -183,6 +189,7 @@ public class MoteurJeu extends Application {
 
             }
         };
+
 
         // lance l'animation
         timer.start();

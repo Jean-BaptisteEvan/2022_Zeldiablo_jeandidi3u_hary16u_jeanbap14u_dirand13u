@@ -2,17 +2,30 @@
 
 title Considérer le monstre dans les déplacements du personnage
 participant "laby:Labyrinthe" as laby
-participant "deplacerPerso(String action)" as deplacerPerso
---> laby
+participant "m:Monstre" as m
+participant "p:Perso" as p
+-> laby :deplacerPerso(String action)
 activate laby
-  laby --> deplacerPerso
-    activate deplacerPerso
+        laby -> m : getX()
+        activate m
+        laby <-- m
+        deactivate m
+        laby -> m : getY()
+        activate m
+        laby <-- m
+        deactivate m
       alt presense d'un monstre
-        deplacerPerso --> deplacerPerso
+      else
+        laby -> p : getX()
+                activate p
+                laby <-- p
+                deactivate p
+                laby -> p : getY()
+                activate p
+                laby <-- p
+                deactivate p
       end
-      laby <-- deplacerPerso
-    deactivate deplacerPerso
-  <-- laby  
+ <-- laby
 deactivate laby
 
 
