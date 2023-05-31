@@ -1,0 +1,35 @@
+@startuml
+
+title attaque d'un monstre
+participant "laby:Labyrinthe" as laby
+participant "deplacerEntite(String action)" as deplacer
+--> laby
+participant "p:Perso" as perso
+activate laby
+
+  laby --> deplacer : deplacer(String action)
+    activate deplacer
+      deplacer  --> m : etreColler()
+          activate m
+          m --> deplacer : bColler
+          deactivate m
+      alt bColler = true
+
+        deplacer --> perso : setPv(-1)
+        activate perso
+        perso --> deplacer
+        deactivate perso
+      else bColler = false
+        deplacer --> m : deplacerMonstre
+        activate m
+        m --> deplacer
+        deactivate m
+
+      end
+      laby <-- deplacer
+    deactivate deplacer
+  <-- laby
+deactivate laby
+
+
+@enduml
