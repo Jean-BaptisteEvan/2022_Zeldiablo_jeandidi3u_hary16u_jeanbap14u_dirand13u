@@ -55,10 +55,10 @@ public class LabyDessin implements DessinJeu {
         double ay = labyrinthe.getLabyrinthe().amulette.getY();
         gc.setFill(Color.GREEN);
         gc.fillOval(ax*TAILLE, ay*TAILLE, TAILLE/2, TAILLE/2);
-        double ex = labyrinthe.getLabyrinthe().emplalx();
-        double ey = labyrinthe.getLabyrinthe().emplaly();
-        gc.setFill(Color.YELLOW);
-        gc.fillRect(ex*TAILLE, ey*TAILLE, TAILLE, TAILLE);
+//        double ex = labyrinthe.getLabyrinthe().emplalx();
+//        double ey = labyrinthe.getLabyrinthe().emplaly();
+//        gc.setFill(Color.YELLOW);
+//        gc.fillRect(ex*TAILLE, ey*TAILLE, TAILLE, TAILLE);
     }
 }
 
