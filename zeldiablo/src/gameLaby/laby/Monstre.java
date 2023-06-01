@@ -1,58 +1,28 @@
 package gameLaby.laby;
 
-public class Monstre implements Entite{
+public class Monstre extends Entite {
 
-     public final static String MONSTRE = "Monstre";
-    /**
-     * position du monstre
-     */
-    int x, y;
+    public final static String MONSTRE = "Monstre";
 
     /**
-     * constructeur du monstre
+     * Constructeur du monstre
      *
-     * @param dx position selon x
-     * @param dy position selon y
+     * @param dx Position selon x
+     * @param dy Position selon y
      */
     public Monstre(int dx, int dy) {
-        this.x = dx;
-        this.y = dy;
+        super(dx, dy);
     }
 
     /**
-     * permet de savoir si le monstre est en x,y
+     * Permet de savoir si le monstre est en x, y
      *
-     * @param dx position testee
-     * @param dy position testee
-     * @return true si le monstre est bien en (dx,dy)
+     * @param dx Position testée
+     * @param dy Position testée
+     * @return vrai si le monstre est bien en (dx, dy)
      */
+    @Override
     public boolean etrePresent(int dx, int dy) {
-
         return (this.x == dx && this.y == dy);
     }
-
-    // ############################################
-    // GETTER
-    // ############################################
-
-    /**
-     * @return position x du monstre
-     */
-    public int getX() {
-        // getter
-        return this.x;
-    }
-
-    /**
-     * @return position y du monstre
-     */
-    public int getY() {
-        //getter
-        return this.y;
-    }
-
-
-
-
-
 }

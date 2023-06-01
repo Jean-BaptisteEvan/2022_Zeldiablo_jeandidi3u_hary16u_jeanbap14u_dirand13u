@@ -17,7 +17,7 @@ public class MainLaby  {
 
         // parametrage du moteur de jeu
         MoteurJeu.setTaille(LabyDessin.TAILLE * jeuLab.getLabyrinthe().getLength(),LabyDessin.TAILLE * jeuLab.getLabyrinthe().getLengthY());
-        MoteurJeu.setFPS(5);
+        MoteurJeu.setFPS(10);
 
         // lancement du jeu
         MoteurJeu.launch(jeuLab, dessinLab);
