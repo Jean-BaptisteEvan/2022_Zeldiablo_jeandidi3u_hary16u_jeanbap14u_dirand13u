@@ -7,7 +7,8 @@ public class Clavier {
     /**
      * controle appuyes
      */
-    public boolean haut, bas, gauche, droite;
+    public boolean haut, bas, gauche, droite, espace;
+    public boolean hautEnAttente, basEnAttente, gaucheEnAttente, droiteEnAttente, espaceEnAttente;
 
     /**
      * stocke les commandes
@@ -15,62 +16,62 @@ public class Clavier {
      * @param event evenement clavier
      */
     public void appuyerTouche(KeyEvent event) {
-
         switch (event.getCode()) {
-
-            // si touche bas
             case S:
-                this.bas = true;
+                if (!bas) {
+                    basEnAttente = true;
+                }
                 break;
-
-            // si touche haut
             case Z:
-                this.haut = true;
+                if (!haut) {
+                    hautEnAttente = true;
+                }
                 break;
-
-            // si touche gauche
             case Q:
-                this.gauche = true;
+                if (!gauche) {
+                    gaucheEnAttente = true;
+                }
                 break;
-
-            // si touche droite
             case D:
-                this.droite = true;
+                if (!droite) {
+                    droiteEnAttente = true;
+                }
                 break;
-
+            case SPACE:
+                if (!espace) {
+                    espaceEnAttente = true;
+                }
+                break;
         }
-
     }
+
+    public void relacherTouche(KeyEvent event) {
+        switch (event.getCode()) {
+            case S:
+                basEnAttente = false;
+                break;
+            case Z:
+                hautEnAttente = false;
+                break;
+            case Q:
+                gaucheEnAttente = false;
+                break;
+            case D:
+                droiteEnAttente = false;
+                break;
+            case SPACE:
+                espaceEnAttente = false;
+                break;
+        }
+    }
+
+
 
     /**
      * stocke les commandes
      *
      * @param event evenement clavier
      */
-    public void relacherTouche(KeyEvent event) {
 
-        switch (event.getCode()) {
 
-            // si touche bas
-            case S:
-                this.bas = false;
-                break;
-
-            // si touche haut
-            case Z:
-                this.haut = false;
-                break;
-
-            // si touche gauche
-            case Q:
-                this.gauche = false;
-                break;
-
-            // si touche droite
-            case D:
-                this.droite = false;
-                break;
-
-        }
-    }
 }

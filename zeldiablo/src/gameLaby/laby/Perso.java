@@ -1,8 +1,12 @@
 package gameLaby.laby;
 
+import java.util.ArrayList;
+
 public class Perso extends Entite {
 
     public final static String PERSONNAGE = "Personnage";
+
+    private final ArrayList<Bombe> bombes;
 
     private int vie = 5;
     private boolean amuletteTrouve;
@@ -16,18 +20,22 @@ public class Perso extends Entite {
     public Perso(int dx, int dy) {
         super(dx, dy);
         this.amuletteTrouve = false;
+        this.bombes = new ArrayList<>();
     }
 
-    /**
-     * Permet de savoir si le personnage est en x, y
-     *
-     * @param dx Position testée
-     * @param dy Position testée
-     * @return vrai si le personnage est bien en (dx, dy)
-     */
-    @Override
-    public boolean etrePresent(int dx, int dy) {
-        return (this.x == dx && this.y == dy);
+
+    public void poserBombe() {
+        if (bombes.size() >= 3) {
+            return; // Limite de bombes atteinte, ne pose pas de bombe
+        }
+
+        for (Bombe bombe : bombes) {
+            if (this.etrePresent(bombe.getX(), bombe.getY())) {
+                return; // Il y a déjà une bombe à cette position, ne pose pas de bombe
+            }
+        }
+
+        bombes.add(new Bombe(this.x, this.y));
     }
 
     // ############################################
@@ -40,6 +48,10 @@ public class Perso extends Entite {
 
     public boolean getAmuletteTrouve() {
         return amuletteTrouve;
+    }
+
+    public ArrayList<Bombe> getBombes(){
+        return this.bombes;
     }
 
     // ############################################
@@ -56,6 +68,7 @@ public class Perso extends Entite {
     public void setAmuletteTrouve(boolean t){
         this.amuletteTrouve = t;
     }
+
 
 
 

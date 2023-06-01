@@ -14,15 +14,4 @@ public class Monstre extends Entite {
         super(dx, dy);
     }
 
-    /**
-     * Permet de savoir si le monstre est en x, y
-     *
-     * @param dx Position testée
-     * @param dy Position testée
-     * @return vrai si le monstre est bien en (dx, dy)
-     */
-    @Override
-    public boolean etrePresent(int dx, int dy) {
-        return (this.x == dx && this.y == dy);
-    }
 }

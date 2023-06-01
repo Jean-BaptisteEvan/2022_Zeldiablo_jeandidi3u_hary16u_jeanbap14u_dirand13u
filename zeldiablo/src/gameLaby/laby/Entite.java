@@ -25,7 +25,9 @@ public abstract class Entite {
      * @param dy Position y testée
      * @return vrai si l'entité est en (dx, dy)
      */
-    public abstract boolean etrePresent(int dx, int dy);
+    public boolean etrePresent(int dx, int dy){
+        return (this.x == dx && this.y == dy);
+    }
 
     // ############################################
     // GETTER

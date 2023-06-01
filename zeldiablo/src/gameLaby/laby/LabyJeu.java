@@ -20,22 +20,37 @@ public class LabyJeu implements Jeu {
     /**
      * met a jour l'etat du jeu
      */
-    public void update(double secondes,Clavier clavier) {
 
-        // deplace la raquette en fonction des touches
-        if (clavier.droite) {
-            this.labyrinthe.deplacerEntite(Labyrinthe.DROITE);
-        }
-        if (clavier.gauche) {
-            this.labyrinthe.deplacerEntite(Labyrinthe.GAUCHE);
-        }
-        if (clavier.haut) {
+    public void update(double deltaTime, Clavier clavier) {
+        if (clavier.haut || clavier.hautEnAttente) {
+            // Effectuer l'action correspondant à la touche haut
             this.labyrinthe.deplacerEntite(Labyrinthe.HAUT);
+            clavier.hautEnAttente = false;
         }
-        if (clavier.bas) {
+        if (clavier.bas || clavier.basEnAttente) {
+            // Effectuer l'action correspondant à la touche bas
             this.labyrinthe.deplacerEntite(Labyrinthe.BAS);
+            clavier.basEnAttente = false;
+        }
+        if (clavier.gauche || clavier.gaucheEnAttente) {
+            // Effectuer l'action correspondant à la touche gauche
+            this.labyrinthe.deplacerEntite(Labyrinthe.GAUCHE);
+            clavier.gaucheEnAttente = false;
+        }
+        if (clavier.droite || clavier.droiteEnAttente) {
+            // Effectuer l'action correspondant à la touche droite
+            this.labyrinthe.deplacerEntite(Labyrinthe.DROITE);
+            clavier.droiteEnAttente = false;
+        }
+        if (clavier.espace || clavier.espaceEnAttente) {
+            // Effectuer l'action correspondant à la touche espace
+            this.labyrinthe.pj.poserBombe();
+            clavier.espaceEnAttente = false;
         }
     }
+
+
+
 
 
     @Override

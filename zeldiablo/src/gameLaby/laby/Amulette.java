@@ -11,18 +11,7 @@ public class Amulette extends Entite {
      * @param dy Position selon y
      */
     public Amulette(int dx, int dy) {
-        super(dx,dy);
+        super(dx, dy);
     }
 
-    /**
-     * Permet de savoir si l'amulette est en x, y
-     *
-     * @param dx Position testée
-     * @param dy Position testée
-     * @return vrai si l'amulette est bien en (dx, dy)
-     */
-    @Override
-    public boolean etrePresent(int dx, int dy) {
-        return (this.x == dx && this.y == dy);
-    }
 }

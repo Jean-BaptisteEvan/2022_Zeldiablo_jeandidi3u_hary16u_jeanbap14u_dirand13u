@@ -10,10 +10,12 @@ import javafx.scene.shape.Circle;
 import moteurJeu.Jeu;
 import moteurJeu.DessinJeu;
 
+import java.util.ArrayList;
+
 
 public class LabyDessin implements DessinJeu {
 
-    public static final int TAILLE = 50;
+    public static final int TAILLE = 70;
 
     @Override
     public void dessinerJeu(Jeu jeu, Canvas canvas) {
@@ -26,9 +28,8 @@ public class LabyDessin implements DessinJeu {
         // dessin fond
         gc.setFill(Color.WHITE);
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-
         // dessin Labyrinthe
-        gc.setFill(Color.BLACK);
+        gc.setFill(Color.rgb(30,30,30));
         Labyrinthe laby = labyrinthe.getLabyrinthe();
         for (int i = 0; i < laby.getLength(); i++) {
             for (int j = 0; j < laby.getLengthY(); j++) {
@@ -61,11 +62,16 @@ public class LabyDessin implements DessinJeu {
         px = labyrinthe.getLabyrinthe().amulette.getX();
         py = labyrinthe.getLabyrinthe().amulette.getY();
         gc.setFill(Color.GREEN);
-        gc.fillOval(px * TAILLE, py * TAILLE, TAILLE/2, TAILLE/2);
-//        double ex = labyrinthe.getLabyrinthe().emplalx();
-//        double ey = labyrinthe.getLabyrinthe().emplaly();
-//        gc.setFill(Color.YELLOW);
-//        gc.fillRect(ex*TAILLE, ey*TAILLE, TAILLE, TAILLE);
+        gc.fillOval(px * TAILLE, py * TAILLE, TAILLE * 0.5, TAILLE * 0.5);
+
+        // dessin Labyrinthe
+        gc.setFill(Color.SANDYBROWN);
+        ArrayList bombes = labyrinthe.getLabyrinthe().pj.getBombes();
+        for (int i = 0; i < bombes.size(); i++) {
+            Bombe bombe = labyrinthe.getLabyrinthe().pj.getBombes().get(i);
+            gc.fillOval(bombe.getX() * TAILLE + TAILLE * 0.1 , bombe.getY() * TAILLE + TAILLE * 0.1 , TAILLE * 0.8, TAILLE * 0.8);
+        }
+
     }
 }
 
