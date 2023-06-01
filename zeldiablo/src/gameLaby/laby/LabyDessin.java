@@ -71,7 +71,6 @@ public class LabyDessin implements DessinJeu {
             Bombe bombe = labyrinthe.getLabyrinthe().pj.getBombes().get(i);
             gc.fillOval(bombe.getX() * TAILLE + TAILLE * 0.1 , bombe.getY() * TAILLE + TAILLE * 0.1 , TAILLE * 0.8, TAILLE * 0.8);
         }
-
     }
 }
 
