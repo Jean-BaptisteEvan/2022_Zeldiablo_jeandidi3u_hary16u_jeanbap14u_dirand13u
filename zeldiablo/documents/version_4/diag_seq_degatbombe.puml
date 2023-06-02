@@ -1,0 +1,6 @@
+@startuml
+participant "main" as main
+participant "laby: Labyrinthe" as laby
+participant "b : Bombe" as bombe
+
+@enduml
