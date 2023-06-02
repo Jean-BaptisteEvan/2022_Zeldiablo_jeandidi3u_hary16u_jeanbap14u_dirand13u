@@ -13,8 +13,8 @@ activate laby
     laby <-- perso : vie
   deactivate perso
 
-  alt getVie<=0
-    laby --> laby
+  alt vie<=0
+    laby -> laby : true
   end
 
 
