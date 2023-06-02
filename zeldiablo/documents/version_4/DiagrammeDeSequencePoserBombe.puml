@@ -1,0 +1,22 @@
+@startuml
+title:"Poser une Bombe"
+
+participant perso
+participant listeBombe
+
+
+->perso:poserBombe()
+activate perso
+perso-> listeBombe:size()
+activate listeBombe
+perso <-- listeBombe:tailleListeDeBombe
+alt tailleListeDeBombe < 3
+perso -> listeBombe:new bombe(perso.getX,perso.getY);
+listeBombe-->perso:listeBombe++
+deactivate listeBombe
+end
+<-- perso
+deactivate perso
+
+
+@enduml

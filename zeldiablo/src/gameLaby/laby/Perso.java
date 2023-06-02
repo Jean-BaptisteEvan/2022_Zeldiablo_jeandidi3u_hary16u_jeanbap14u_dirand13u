@@ -38,6 +38,10 @@ public class Perso extends Entite {
         bombes.add(new Bombe(this.x, this.y));
     }
 
+    public void supprimerBombe(Bombe bombe) {
+        bombes.remove(bombe);
+    }
+
     // ############################################
     // GETTER
     // ############################################
