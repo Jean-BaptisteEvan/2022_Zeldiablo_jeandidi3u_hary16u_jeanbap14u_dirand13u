@@ -2,6 +2,7 @@ package gameLaby.laby;
 import moteurJeu.Clavier;
 import moteurJeu.Jeu;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class LabyJeu implements Jeu {
     private final Labyrinthe labyrinthe;
@@ -47,10 +48,18 @@ public class LabyJeu implements Jeu {
             this.labyrinthe.pj.poserBombe();
             clavier.espaceEnAttente = false;
         }
+        ArrayList<Bombe> bombes = this.labyrinthe.pj.getBombes();
+        ArrayList<Bombe> bombesASupprimer = new ArrayList<>();
+
+        for (Bombe bombe : bombes) {
+            if (bombe.aExplose()) {
+                bombesASupprimer.add(bombe);
+            }
+        }
+        for (Bombe bombe : bombesASupprimer) {
+            this.labyrinthe.pj.supprimerBombe(bombe);
+        }
     }
-
-
-
 
 
     @Override

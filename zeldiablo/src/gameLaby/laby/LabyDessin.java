@@ -60,6 +60,7 @@ public class LabyDessin implements DessinJeu {
         gc.setFill(Color.GREEN);
         gc.fillOval(px * TAILLE+(TAILLE*0.25), py * TAILLE + (TAILLE*4/7), TAILLE*0.5, TAILLE * 0.5);
 
+<<<<<<< HEAD
 
         //dessin MurFriable
 
@@ -74,6 +75,9 @@ public class LabyDessin implements DessinJeu {
             gc.fillRect(murF.getX() * TAILLE, murF.getY() * TAILLE, TAILLE, TAILLE);
         }
         // dessin Labyrinthe
+
+        // dessin Bombe
+>>>>>>> df96c30c2300d1b0d24e878f8571e4d539e10eeb
         gc.setFill(Color.SANDYBROWN);
         ArrayList bombes = labyrinthe.getLabyrinthe().pj.getBombes();
         for (int i = 0; i < bombes.size(); i++) {
