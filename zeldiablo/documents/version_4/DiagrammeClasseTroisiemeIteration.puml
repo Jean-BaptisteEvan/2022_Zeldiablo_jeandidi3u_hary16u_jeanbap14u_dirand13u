@@ -1,0 +1,104 @@
+@startuml
+skinparam class{
+    backgroundColor<<Nouveau>> Pink
+    borderColor<<Nouveau>>  Black
+    backgroundColor<<Modifie>> LightGreen
+    borderColor<<Modifie>>  Black
+}
+package moteurJeu{
+interface Jeu{
++ init()
++ update(seconds: double, clavier: Clavier)
++ etreFini(): boolean
+}
+
+
+interface DessinJeu {
++ dessinerJeu(jeu: Jeu, canvas: Canvas)
+}
+}
+package gamelaby.laby{
+    class LabyDessin{
+        + dessinerJeu(jeu: Jeu, canvas: Canvas)
+    }
+
+DessinJeu <|.. LabyDessin
+    class LabyJeu{
+        +init()
+        +Labyjeu()
+        +update(seconds : double, clavier : Clavier)
+        +etreFini() : boolean
+        }
+
+Jeu <|.. LabyJeu
+
+    class Labyrinthe <<Modifie>>{
+        -murs : boolean[ ][ ]
+        +Labyrinthe(nom : String)
+        +getSuivant(x :int, y int, action : String ) : int[]
+        +deplacerEntite(action : String)
+        +etreFini() : boolean
+        +getLength() : int
+        +getLengthY() : int
+        +etreColler() : boolean
+
+
+    }
+LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
+    abstract class Entite <<Modifie>> {
+        +etrePresent(dx : int, dy :int) : boolean
+        + getX() : int
+        + getY() : int
+
+
+
+    }
+    class Perso <<Modifie>>{
+    -vie : int
+    -AcAmulette : boolean
+    -bombes : ArrayList<Bomb>
+    +Perso()
+    +setAmuletteTrouve(boolean t) : boolean
+    +setVie(pv : int)
+    +poserBombe()
+    +getVie() : int
+    +getBombes()
+
+
+
+
+
+    }
+    class Monstre <<Modifie>>{
+
+
+    +Monstre()
+
+    }
+    class Amulette<<Modifie>>{
+
+
+        +Amulette()
+
+    }
+    class Bombe<<Nouveau>>{
+
+
+            +Bombe()
+            +aExplose() : int
+
+        }
+
+
+Entite <|.. Amulette
+ Entite <|.. Perso
+ Entite <|.. Monstre
+ Entite <|.. Bombe
+ Labyrinthe "1" --> "1" Perso : -pj
+ Labyrinthe "1" --> "1" Monstre : -monstre
+ LabyJeu <. LabyDessin:uses
+    }
+
+
+
+@enduml
