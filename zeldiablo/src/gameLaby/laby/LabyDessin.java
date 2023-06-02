@@ -1,14 +1,10 @@
 package gameLaby.laby;
 
-import gameArkanoid.ArkanoidJeu;
-import gameArkanoid.Balle;
-import gameArkanoid.Raquette;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import moteurJeu.Jeu;
 import moteurJeu.DessinJeu;
+import moteurJeu.Jeu;
 
 import java.util.ArrayList;
 
@@ -64,7 +60,24 @@ public class LabyDessin implements DessinJeu {
         gc.setFill(Color.GREEN);
         gc.fillOval(px * TAILLE+(TAILLE*0.25), py * TAILLE + (TAILLE*4/7), TAILLE*0.5, TAILLE * 0.5);
 
+<<<<<<< HEAD
+
+        //dessin MurFriable
+
+        ArrayList<MurFriable> murfri = laby.getMurFriables();
+        for (int i = 0; i < murfri.size(); i++) {
+            MurFriable murF = murfri.get(i);
+            if(murF.etreDetruit()){
+                gc.setFill(Color.rgb(128,128,128,0.10));
+            }else{
+                gc.setFill(Color.rgb(64,64,64,0.50));
+            }
+            gc.fillRect(murF.getX() * TAILLE, murF.getY() * TAILLE, TAILLE, TAILLE);
+        }
+        // dessin Labyrinthe
+
         // dessin Bombe
+>>>>>>> df96c30c2300d1b0d24e878f8571e4d539e10eeb
         gc.setFill(Color.SANDYBROWN);
         ArrayList bombes = labyrinthe.getLabyrinthe().pj.getBombes();
         for (int i = 0; i < bombes.size(); i++) {

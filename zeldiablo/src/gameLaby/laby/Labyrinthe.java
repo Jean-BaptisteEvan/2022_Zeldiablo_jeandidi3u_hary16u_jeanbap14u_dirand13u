@@ -3,7 +3,7 @@ package gameLaby.laby;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.SQLOutput;
+import java.util.ArrayList;
 
 /**
  * classe labyrinthe. represente un labyrinthe avec
@@ -20,6 +20,7 @@ public class Labyrinthe {
     public static final char VIDE = '.';
     public static final char MONSTRE = 'M';
     public static final char AMULETTE = 'A';
+    public static final char MUR_FRIABLE = 'F';
 
     /**
      * constantes actions possibles
@@ -39,6 +40,8 @@ public class Labyrinthe {
     public Amulette amulette;
 
     public Depart depart;
+
+    public ArrayList<MurFriable> murFriables;
 
     /**
      * les murs du labyrinthe
@@ -102,6 +105,7 @@ public class Labyrinthe {
         // creation labyrinthe vide
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
+        this.murFriables = new ArrayList<>();
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -142,7 +146,12 @@ public class Labyrinthe {
                         //ajoute amulette
                         this.amulette = new Amulette(colonne, numeroLigne);
                         break;
-
+                    case MUR_FRIABLE:
+                        //pas de mur
+                        this.murs[colonne][numeroLigne]=false;
+                        //ajout du murs
+                        this.murFriables.add(new MurFriable(colonne,numeroLigne));
+                        break;
                     default:
                         throw new Error("caractere inconnu " + c);
                 }
@@ -180,6 +189,13 @@ public class Labyrinthe {
                     peutBouger = false;
                 }
             }
+
+            for(int i = 0;i < this.murFriables.size();i++){
+                MurFriable murF = this.murFriables.get(i);
+                if(murF.etrePresent(suivante[0],suivante[1]) && ! murF.etreDetruit() ){
+                    peutBouger = false;
+                }
+            }
         }else{
             peutBouger = false;
         }
@@ -202,6 +218,12 @@ public class Labyrinthe {
             if (!this.murs[suivante[0]][suivante[1]] && (this.pj.getX() != suivante[0] || this.pj.getY() != suivante[1])) {
                 for(Bombe bombe : this.pj.getBombes()){
                     if(bombe.etrePresent(suivante[0],suivante[1])){
+                        peutBouger = false;
+                    }
+                }
+                for(int i = 0;i < this.murFriables.size();i++){
+                    MurFriable murF = this.murFriables.get(i);
+                    if(murF.etrePresent(suivante[0],suivante[1]) && ! murF.etreDetruit() ){
                         peutBouger = false;
                     }
                 }
@@ -289,7 +311,7 @@ public class Labyrinthe {
         return this.murs[x][y];
     }
 
-    
-
-
+    public ArrayList<MurFriable> getMurFriables() {
+        return murFriables;
+    }
 }
