@@ -62,7 +62,7 @@ public class LabyDessin implements DessinJeu {
         px = labyrinthe.getLabyrinthe().amulette.getX();
         py = labyrinthe.getLabyrinthe().amulette.getY();
         gc.setFill(Color.GREEN);
-        gc.fillOval(px * TAILLE, py * TAILLE, TAILLE * 0.5, TAILLE * 0.5);
+        gc.fillOval(px * TAILLE+(TAILLE*0.25), py * TAILLE + (TAILLE*4/7), TAILLE*0.5, TAILLE * 0.5);
 
         // dessin Labyrinthe
         gc.setFill(Color.SANDYBROWN);
