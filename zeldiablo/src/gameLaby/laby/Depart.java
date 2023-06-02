@@ -2,8 +2,6 @@ package gameLaby.laby;
 
 public class Depart extends Entite {
 
-    public final static String AMULETTE = "Amulette";
-
     /**
      * Constructeur de l'amulette
      *
