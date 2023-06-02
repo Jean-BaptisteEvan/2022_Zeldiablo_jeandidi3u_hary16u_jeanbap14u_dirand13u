@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class LabyDessin implements DessinJeu {
 
-    public static final int TAILLE = 70;
+    public static final int TAILLE = 50;
 
     @Override
     public void dessinerJeu(Jeu jeu, Canvas canvas) {
