@@ -1,41 +1,52 @@
 1. Fin du jeu : mort du héros
 
-- Descriptif:
+- Descriptif :
 Lorsque le héros n'a plus de points de vie, le jeu s'arrête et la partie est perdue.
 Critères de validation
 • Le héros par défaut dispose de 5 points de vie.
 • Chaque monstre fait 1 point de dégât lorsque le héros se fait attaquer.
-• Quand le héros meurt, un message de n est aché sur la console et le jeu s'arrête.
+• Quand le héros meurt, un message de fin est affiché sur la console et le jeu s'arrête.
 
-2. Mise en place de l'amulette
+2. Attaque des monstres
 
-- Descriptif:
+- Descriptif :
+Lorsqu'un monstre doit agir, si le monstre se trouve à côté du héros, alors il ne se
+déplace pas, mais il attaque celui-ci.
+Critères de validation
+• Lorsque le monstre est à côté du joueur, il attaque et ne se déplace pas.
+Par défaut le Héros perd 1 point de vie.
+• Lorsque le monstre est loin du joueur, il n'attaque pas mais se déplace
+
+
+3. Mise en place de l'amulette
+
+- Descriptif :
 Au lancement du jeu, une amulette est placée sur une case vide du labyrinthe. Le
 placement de l'amulette est toujours le même et dépend du niveau.
 Critères de validation
 • L'amulette ne peut être placée que sur une case vide.
 • Les monstres et le héros peuvent se situer sur la case de l'amulette.
-• L'amulette est achée dans le jeu sous la forme d'un cercle jaune sur la case vide
+• L'amulette est affichée dans le jeu sous la forme d'un cercle jaune sur la case vide
 où elle se trouve.
 
-3. Acquisition de l'amulette
+4. Acquisition de l'amulette
 
-- Descriptif:
-Des que le joueur demande à déplacer le héros sur l'amulette, le héros se déplace et
+- Descriptif :
+Dès que le joueur demande à déplacer le héros sur l'amulette, le héros se déplace et
 prend l'amulette.
 Critères de validation
-• L'amulette n'est plus sur le plateau (et n'est plus achée).
+• L'amulette n'est plus sur le plateau (et n'est plus affichée).
 • Le Héros possède l'amulette.
 • Un monstre ne récupère pas l'amulette.
 
-4. Fin du jeu : victoire du héros
+5. Fin du jeu : victoire du héros
 
 Une fois que le héros a pris l'amulette, il peut retourner à l'entrée du labyrinthe et
 remporter le jeu.
 
-- Descriptif: 
+- Descriptif :
 Critères de validation
 • Lorsque le héros possède l'amulette et qu'il retourne à l'entrée du labyrinthe, le
-jeu s'arrête et un message est aché dans la console.
+jeu s'arrête et un message est affiché dans la console.
 • Lorsque le héros ne possède pas l'amulette, le jeu ne s'arrête pas même si le héros
 retourne à l'entrée
