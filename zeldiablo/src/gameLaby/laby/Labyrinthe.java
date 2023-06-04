@@ -3,6 +3,7 @@ package gameLaby.laby;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 /**
@@ -130,7 +131,7 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
-                        this.pj = new Perso(colonne, numeroLigne);
+                        this.pj = new Perso(colonne, numeroLigne,this);
                         this.depart = new Depart(colonne, numeroLigne);
                         break;
 
@@ -240,13 +241,21 @@ public class Labyrinthe {
             this.pj.setAmuletteTrouve(true);
         }
         TrouverAmulette();
+        System.out.println("Vie du joueur :" + this.pj.getVie() + " ! ");
 
     }
 
     public boolean etreColler(){
         Monstre m = this.monstre;
         Perso p = this.pj;
-        if((m.getX()==p.getX()+1)&&(m.getY()==p.getY())||(m.getX()==p.getX()-1)&&(m.getY()==p.getY())||(m.getX()==p.getX())&&(m.getY()==p.getY()-1)||(m.getX()==p.getX())&&(m.getY()==p.getY()+1)){
+        int px = p.getX();
+        int py = p.getY();
+        int mx = m.getX();
+        int my = m.getY();
+        if((mx == px +1) && (my == py)||
+                (mx == px - 1) && (my == py) ||
+                (mx == px) && (my == py - 1) ||
+                (mx == px) && (my == py + 1)){
             return true;
         }else{
             return false;
@@ -313,5 +322,9 @@ public class Labyrinthe {
 
     public ArrayList<MurFriable> getMurFriables() {
         return murFriables;
+    }
+
+    public Labyrinthe getLabyrinthe() {
+        return this;
     }
 }

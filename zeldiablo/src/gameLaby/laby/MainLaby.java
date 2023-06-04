@@ -12,7 +12,7 @@ public class MainLaby  {
 
 
         // creation des objets
-        LabyJeu jeuLab = new LabyJeu("labySimple/labyTestMurFriable.txt",0,0);
+        LabyJeu jeuLab = new LabyJeu("labySimple/labyDemonstration.txt",0,0);
         LabyDessin dessinLab = new LabyDessin();
         jeuLab.getLabyrinthe().getMurFriables().get(2).setDestruction(true);
         // parametrage du moteur de jeu
@@ -21,7 +21,5 @@ public class MainLaby  {
 
         // lancement du jeu
         MoteurJeu.launch(jeuLab, dessinLab);
-
-
     }
 }

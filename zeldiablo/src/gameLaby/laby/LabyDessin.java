@@ -58,12 +58,10 @@ public class LabyDessin implements DessinJeu {
         px = labyrinthe.getLabyrinthe().amulette.getX();
         py = labyrinthe.getLabyrinthe().amulette.getY();
         gc.setFill(Color.GREEN);
-        gc.fillOval(px * TAILLE+(TAILLE*0.25), py * TAILLE + (TAILLE*4/7), TAILLE*0.5, TAILLE * 0.5);
+        gc.fillOval(px * TAILLE+(TAILLE*0.25), py * TAILLE + (TAILLE*0.5), TAILLE*0.5, TAILLE * 0.5);
 
-<<<<<<< HEAD
 
         //dessin MurFriable
-
         ArrayList<MurFriable> murfri = laby.getMurFriables();
         for (int i = 0; i < murfri.size(); i++) {
             MurFriable murF = murfri.get(i);
@@ -74,11 +72,10 @@ public class LabyDessin implements DessinJeu {
             }
             gc.fillRect(murF.getX() * TAILLE, murF.getY() * TAILLE, TAILLE, TAILLE);
         }
-        // dessin Labyrinthe
+
 
         // dessin Bombe
->>>>>>> df96c30c2300d1b0d24e878f8571e4d539e10eeb
-        gc.setFill(Color.SANDYBROWN);
+        gc.setFill(Color.rgb(106,66,29));
         ArrayList bombes = labyrinthe.getLabyrinthe().pj.getBombes();
         for (int i = 0; i < bombes.size(); i++) {
             Bombe bombe = labyrinthe.getLabyrinthe().pj.getBombes().get(i);

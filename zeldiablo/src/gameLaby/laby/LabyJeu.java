@@ -1,27 +1,19 @@
 package gameLaby.laby;
+
 import moteurJeu.Clavier;
 import moteurJeu.Jeu;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class LabyJeu implements Jeu {
     private final Labyrinthe labyrinthe;
 
-
-
-    /**
-     * constructeur par defaut
-     */
-    public LabyJeu(String nom,int dx,int dy) throws IOException {
+    public LabyJeu(String nom, int dx, int dy) throws IOException {
         this.labyrinthe = new Labyrinthe(nom);
     }
 
-
     @Override
-    /**
-     * met a jour l'etat du jeu
-     */
-
     public void update(double deltaTime, Clavier clavier) {
         if (clavier.haut || clavier.hautEnAttente) {
             // Effectuer l'action correspondant à la touche haut
@@ -45,10 +37,11 @@ public class LabyJeu implements Jeu {
         }
         if (clavier.espace || clavier.espaceEnAttente) {
             // Effectuer l'action correspondant à la touche espace
-            this.labyrinthe.pj.poserBombe();
+            this.labyrinthe.getLabyrinthe().pj.poserBombe();
             clavier.espaceEnAttente = false;
         }
-        ArrayList<Bombe> bombes = this.labyrinthe.pj.getBombes();
+
+        ArrayList<Bombe> bombes = this.labyrinthe.getLabyrinthe().pj.getBombes();
         ArrayList<Bombe> bombesASupprimer = new ArrayList<>();
 
         for (Bombe bombe : bombes) {
@@ -56,15 +49,15 @@ public class LabyJeu implements Jeu {
                 bombesASupprimer.add(bombe);
             }
         }
+
         for (Bombe bombe : bombesASupprimer) {
-            this.labyrinthe.pj.supprimerBombe(bombe);
+            this.labyrinthe.getLabyrinthe().pj.supprimerBombe(bombe);
         }
     }
 
-
     @Override
     public void init() {
-        // pas d'initialisation particuliere
+        // Pas d'initialisation particulière
     }
 
     @Override
@@ -72,17 +65,7 @@ public class LabyJeu implements Jeu {
         return this.labyrinthe.etreFini();
     }
 
-
-    /*#######################################
-    # GETTER
-    ######################################### */
-
     public Labyrinthe getLabyrinthe() {
         return this.labyrinthe;
     }
-
-    
-
-
 }
-

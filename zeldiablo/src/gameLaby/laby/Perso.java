@@ -3,13 +3,13 @@ package gameLaby.laby;
 import java.util.ArrayList;
 
 public class Perso extends Entite {
-
     public final static String PERSONNAGE = "Personnage";
 
     private final ArrayList<Bombe> bombes;
-
-    private int vie = 5;
+    private int vie;
     private boolean amuletteTrouve;
+
+    private final Labyrinthe labyrinthe;
 
     /**
      * Constructeur du personnage
@@ -17,12 +17,13 @@ public class Perso extends Entite {
      * @param dx Position selon x
      * @param dy Position selon y
      */
-    public Perso(int dx, int dy) {
+    public Perso(int dx, int dy, Labyrinthe labyrinthe) {
         super(dx, dy);
+        this.labyrinthe = labyrinthe;
         this.amuletteTrouve = false;
         this.bombes = new ArrayList<>();
+        this.vie = 5;
     }
-
 
     public void poserBombe() {
         if (bombes.size() >= 3) {
@@ -35,45 +36,34 @@ public class Perso extends Entite {
             }
         }
 
-        bombes.add(new Bombe(this.x, this.y));
+        bombes.add(new Bombe(this.x, this.y,labyrinthe));
     }
 
     public void supprimerBombe(Bombe bombe) {
         bombes.remove(bombe);
     }
 
-    // ############################################
-    // GETTER
-    // ############################################
-
-    public int getVie(){
-        return this.vie;
+    public int getVie() {
+        return vie;
     }
 
     public boolean getAmuletteTrouve() {
         return amuletteTrouve;
     }
 
-    public ArrayList<Bombe> getBombes(){
-        return this.bombes;
+    public ArrayList<Bombe> getBombes() {
+        return bombes;
     }
 
-    // ############################################
-    // SETTER
-    // ############################################
-
-    public void setVie(int pv){
-        if(this.vie + pv<0){
+    public void setVie(int pv) {
+        if (this.vie + pv < 0) {
             this.vie = 0;
-        }else {
-            this.vie = this.vie + pv;
+        } else {
+            this.vie += pv;
         }
     }
-    public void setAmuletteTrouve(boolean t){
+
+    public void setAmuletteTrouve(boolean t) {
         this.amuletteTrouve = t;
     }
-
-
-
-
 }
