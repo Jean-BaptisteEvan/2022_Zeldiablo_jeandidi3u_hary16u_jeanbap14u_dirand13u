@@ -8,11 +8,19 @@ import moteurJeu.Jeu;
 
 import java.util.ArrayList;
 
-
+/**
+ * permet d'afficher un jeu de type arkanoid
+ */
 public class LabyDessin implements DessinJeu {
 
     public static final int TAILLE = 50;
 
+
+    /**
+     * affichage d'un jeu de type arkanoid
+     *
+     * @param canvas dessin dans lequel dessin
+     */
     @Override
     public void dessinerJeu(Jeu jeu, Canvas canvas) {
         LabyJeu labyrinthe = (LabyJeu) jeu;

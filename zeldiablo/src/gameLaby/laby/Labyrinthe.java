@@ -241,8 +241,6 @@ public class Labyrinthe {
             this.pj.setAmuletteTrouve(true);
         }
         TrouverAmulette();
-        System.out.println("Vie du joueur :" + this.pj.getVie() + " ! ");
-
     }
 
     public boolean etreColler(){

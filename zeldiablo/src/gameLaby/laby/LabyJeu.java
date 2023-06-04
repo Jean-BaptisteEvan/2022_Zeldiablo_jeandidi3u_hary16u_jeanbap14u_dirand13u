@@ -9,6 +9,14 @@ import java.util.ArrayList;
 public class LabyJeu implements Jeu {
     private final Labyrinthe labyrinthe;
 
+    /**
+     * Constructeur de la classe LabyJeu.
+     *
+     * @param nom Le nom du fichier contenant la configuration du labyrinthe.
+     * @param dx  La position initiale selon l'axe x du personnage.
+     * @param dy  La position initiale selon l'axe y du personnage.
+     * @throws IOException Si une erreur de lecture du fichier se produit.
+     */
     public LabyJeu(String nom, int dx, int dy) throws IOException {
         this.labyrinthe = new Labyrinthe(nom);
     }
@@ -65,6 +73,11 @@ public class LabyJeu implements Jeu {
         return this.labyrinthe.etreFini();
     }
 
+    /**
+     * Obtient le labyrinthe associé au jeu.
+     *
+     * @return Le labyrinthe associé au jeu.
+     */
     public Labyrinthe getLabyrinthe() {
         return this.labyrinthe;
     }
