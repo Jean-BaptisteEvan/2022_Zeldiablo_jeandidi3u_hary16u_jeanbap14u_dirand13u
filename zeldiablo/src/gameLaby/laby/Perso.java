@@ -2,10 +2,7 @@ package gameLaby.laby;
 
 import java.util.ArrayList;
 
-import java.util.ArrayList;
-
 public class Perso extends Entite {
-    public final static String PERSONNAGE = "Personnage";
 
     private final ArrayList<Bombe> bombes;
     private int vie;

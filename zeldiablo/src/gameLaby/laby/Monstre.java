@@ -2,7 +2,6 @@ package gameLaby.laby;
 
 public class Monstre extends Entite {
 
-    public final static String MONSTRE = "Monstre";
 
     /**
      * Constructeur du monstre
