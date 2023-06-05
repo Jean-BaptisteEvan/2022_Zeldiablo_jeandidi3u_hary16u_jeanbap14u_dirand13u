@@ -1,0 +1,89 @@
+
+@startuml
+package moteurJeu{
+interface Jeu{
++ init()
++ update(seconds: double, clavier: Clavier)
++ etreFini(): boolean
+}
+
+
+interface DessinJeu {
++ dessinerJeu(jeu: Jeu, canvas: Canvas)
+}
+}
+package gamelaby.laby{
+    class LabyDessin{
+        + dessinerJeu(jeu: Jeu, canvas: Canvas)
+    }
+
+DessinJeu <|.. LabyDessin
+    class LabyJeu{
+        +init()
+        +Labyjeu()
+        +update(seconds : double, clavier : Clavier)
+        +etreFini() : boolean
+        }
+
+Jeu <|.. LabyJeu
+
+    class Labyrinthe{
+        -murs : boolean[ ][ ]
+        +Labyrinthe(nom : String)
+        +getSuivant(x :int, y int, action : String ) : int[]
+        +deplacerEntite(action : String)
+        +etreFini() : boolean
+        +getLength() : int
+        +getLengthY() : int
+
+    }
+LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
+    interface Entite {
+        +etrePresent(dx : int, dy :int) : boolean
+        + getX() : int
+        + getY() : int
+
+
+    }
+    class Perso{
+    -x : int
+    -y : int
+    - PERSO : String
+    +etrePresent(dx : int, dy : int) : boolean
+    +getX() : int
+    +getY() : int
+    +getBombes() : int
+
+    }
+    class Monstre{
+    -x : int
+    -y : int
+    -MONSTRE : String
+    +etrePresent(dx : int, dy : int) :boolean
+    +getX() : int
+    +getY() : int
+
+    }
+    class Bombe{
+    -x : int
+    -y : int
+    -timer : int
+        -BOMBE : String
+        +etrePresent(dx : int, dy : int) :boolean
+        +getX() : int
+        +getY() : int
+        +getTimer() : int
+
+    }
+ Entite <|.. Perso
+ Entite <|.. Monstre
+ Entite <|.. Bombe
+ Labyrinthe "1" --> "1" Perso : -pj
+ Labyrinthe "1" --> "1" Monstre : -monstre
+ Perso "1" --> "*" Bombe : -bombes
+ LabyJeu <. LabyDessin:uses
+    }
+
+
+
+@enduml
