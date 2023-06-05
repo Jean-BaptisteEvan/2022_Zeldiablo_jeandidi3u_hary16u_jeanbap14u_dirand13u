@@ -10,10 +10,12 @@ activate perso
 perso-> listeBombe:size()
 activate listeBombe
 perso <-- listeBombe:tailleListeDeBombe
-alt tailleListeDeBombe < 3
-perso -> listeBombe:new bombe(perso.getX,perso.getY);
-listeBombe-->perso:listeBombe++
 deactivate listeBombe
+alt tailleListeDeBombe < 3
+perso -> Bombe :new bombe(perso.getX,perso.getY);
+activate Bombe
+Bombe-->perso:listeBombe++
+deactivate Bombe
 end
 <-- perso
 deactivate perso

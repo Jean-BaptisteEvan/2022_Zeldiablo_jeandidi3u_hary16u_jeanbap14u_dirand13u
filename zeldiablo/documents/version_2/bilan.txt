@@ -1,0 +1,11 @@
+Pour la réalisisation de  la version 2 de l'application, étant donné qu'il y avait 4 fonctionnalités nous avons décidés de réaliser chacun sa fonctionnalités. Nous avons réalisé le diagramme de Classe à l'avance pour se coordonnées sur les tâches à effectués. Puis chacun a réalisé le diagramme de séquence de leurs fonctionnalités.
+
+
+Alexandre s'est chargé d'initialiser la position initiale du monstre. Il a créé la classe monstre qui à les mêmes méthodes que la classe Perso et a ajouté un attribut monstre dans la classe Labyrinthe. Dans le contructeur de la classe Labyrinthe, il a ajouté que si le caractère lu dans le fichier est un M, ses coordonnées sont un Monstre.
+
+Evan s'est occupée d'afficher le monstre sur l'application. Il a ajouté dans la classe labyDessin un cercle violet à l'emplacement du monstre dans le labyrinthe
+
+
+Félicien a géré les colision du joueur avec le Monstre, il a modifié la méthode déplacerPerso() de la classe Labyrinthe, il ajoute les conditions que un perso ne peut pas se trouver sur la même case que le Monstre et que le perso ne peut pas aller sur la case du monstre.
+
+Clément s'est occupé de faire déplacer le monstre aléatoirement dans le labyrinthe à chaque fois que le personnage se déplace. Pour cela il a modifié la classe deplacerPerso en déplacerEntite pour la compréhension de la méthode. Dans cette méthode il a ajouter le déplacement du monstre. Puis pour éviter de faire du copier coller dans le code il a créé une interface Entité avec les coordonnées de l'entité et la méthodes etrePresent(). Ainsi le perso et le monstre implemente cette interface 
