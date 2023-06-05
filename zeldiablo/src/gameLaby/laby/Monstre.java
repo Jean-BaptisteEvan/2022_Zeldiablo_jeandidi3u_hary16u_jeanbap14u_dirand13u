@@ -2,8 +2,6 @@ package gameLaby.laby;
 
 public class Monstre extends Entite {
 
-
-
     /**
      * Constructeur du monstre
      *

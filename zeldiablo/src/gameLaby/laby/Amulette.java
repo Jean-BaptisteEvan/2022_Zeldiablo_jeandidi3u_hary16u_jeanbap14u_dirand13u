@@ -3,7 +3,6 @@ package gameLaby.laby;
 public class Amulette extends Entite {
 
 
-
     /**
      * Constructeur de l'amulette
      *

@@ -6,7 +6,12 @@ Dans MoteurJeu, il a mit une condition qui arrête le jeu si être fini renvoie 
 
 
 
+
 Clement et Felicien on cree , RecupererAmulette(), et modifie la methode etreFini()
 Au lancement du jeu, ils ont placee une amulette est sur une case vide du labyrinthe
 Ils ont ensuite fait que le héros puissent prendre l'amulette et ce deplacer avec
 Ils ont ensuite fait  que le héros prenne l'amulette et quand il arrive a la case de depart la partie ce fini
+
+Pour faire attaquer le monstre,Evan a rajouté une condition dans le déplacement du monstre qui fait que le monstre va attaquer le joueur au lieu de se déplacer si le joueur est à coté de lui
+Dans Labyrinthe, Evan a rajouté une méthode etre collé si renvoie true si le monstre est collé au personage
+

@@ -1,0 +1,52 @@
+@startuml
+
+title Considérer les murs friables détruit dans les déplacements du perso
+participant "laby:Labyrinthe" as laby
+participant "murFris:ArrayList<MurFriable>" as mfs
+participant "murFri:MurFriable" as mf
+participant "p:Perso" as p
+-> laby :deplacerPerso(String action)
+activate laby
+      laby -> mfs : size()
+      activate mfs
+      laby <-- mfs : int i
+      deactivate mfs
+      loop i
+        laby -> mfs : get(i)
+        activate mfs
+        mfs -> mf : getX()
+        activate mf
+        mfs <-- mf : getX()
+        deactivate mf
+        laby <-- mfs : int X
+        deactivate mfs
+        laby -> mfs : get(i)
+        activate mfs
+        mfs -> mf : getY()
+        activate mf
+        mfs <-- mf : getY()
+        deactivate mf
+        laby <- mfs : int Y
+        deactivate mfs
+        laby -> mfs : get(i)
+        activate mfs
+        mfs -> mf : getDestruit()
+        activate mf
+        mfs <-- mf : etreDetruit()
+        deactivate mf
+        laby <- mfs : int Y
+        deactivate mfs
+        alt presense d'un mur friable  detruit
+          laby -> p : getX()
+                  activate p
+                  laby <-- p
+                  deactivate p
+                  laby -> p : getY()
+                  activate p
+                  laby <-- p
+                  deactivate p
+        end
+      end
+ <-- laby
+deactivate laby
+@enduml

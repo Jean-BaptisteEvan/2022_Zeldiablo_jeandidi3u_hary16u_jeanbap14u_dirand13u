@@ -37,6 +37,7 @@ Jeu <|.. LabyJeu
         +Labyrinthe(nom : String)
         +getSuivant(x :int, y int, action : String ) : int[]
         +deplacerEntite(action : String)
+        +bougLoopCond() : boolean
         +etreFini() : boolean
         +getLength() : int
         +getLengthY() : int
