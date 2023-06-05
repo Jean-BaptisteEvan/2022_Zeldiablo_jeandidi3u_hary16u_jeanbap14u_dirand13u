@@ -12,7 +12,7 @@ public class MainLaby  {
 
 
         // creation des objets
-        LabyJeu jeuLab = new LabyJeu("labySimple/labyTestBombe.txt",0,0);
+        LabyJeu jeuLab = new LabyJeu("labySimple/labyDemonstration.txt",0,0);
         LabyDessin dessinLab = new LabyDessin();
 
         // parametrage du moteur de jeu

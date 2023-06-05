@@ -82,11 +82,18 @@ LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
         -AMULETTE : String
         +etrePresent(dx : int, dy : int) : boolean
     }
+    class Depart<<nouveau>>{
+        -x : int
+        -y : int
+        + etrePresent(dx : int, dy : int) : boolean
+    }
 Entite <|.. Amulette
  Entite <|.. Perso
  Entite <|.. Monstre
  Labyrinthe "1" --> "1" Perso : -pj
  Labyrinthe "1" --> "1" Monstre : -monstre
+ Labyrinthe "1" --> "1" Amulette : -amulette
+ Labyrinthe "1" --> "1" Depart : -depart
  LabyJeu <. LabyDessin:uses
     }
 

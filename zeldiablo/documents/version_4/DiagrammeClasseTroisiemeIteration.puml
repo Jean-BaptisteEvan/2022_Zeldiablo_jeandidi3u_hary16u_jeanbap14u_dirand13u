@@ -66,27 +66,36 @@ LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
     +getBombes()
 
 
-
-
-
     }
-    class Monstre <<Modifie>>{
+    class Monstre{
+        -x : int
+        -y : int
+        +etrePresent(dx : int, dy : int) :boolean
+        +getX() : int
+        +getY() : int
 
-
-    +Monstre()
-
-    }
-    class Amulette<<Modifie>>{
-
-
-        +Amulette()
-
-    }
+        }
+        class Amulette{
+            -x : int
+            -y : int
+            +etrePresent(dx : int, dy : int) : boolean
+        }
+    class Depart{
+            -x : int
+            -y : int
+            + etrePresent(dx : int, dy : int) : boolean
+        }
     class Bombe<<Nouveau>>{
+            -x : int
+            -y : int
+            -casesExplosion: ArrayList<int[]>
+            -tempsExplosion : long;
+            -labyrinthe: final Labyrinthe
             +Bombe(casesExplosion ArrayList<int[]>)
             +aExplose() : boolean
             +calculerCasesExplosion() :
             +verifierImpactExplosion():
+
         }
 
 
@@ -96,6 +105,8 @@ Entite <|.. Amulette
  Entite <|.. Bombe
  Labyrinthe "1" --> "1" Perso : -pj
  Labyrinthe "1" --> "1" Monstre : -monstre
+ Labyrinthe "1" --> "1" Amulette : -amulette
+ Labyrinthe "1" --> "1" Depart : -depart
  LabyJeu <. LabyDessin:uses
     }
 
