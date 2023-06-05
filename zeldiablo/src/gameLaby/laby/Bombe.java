@@ -4,8 +4,8 @@ import gameLaby.laby.MurFriable;
 import java.util.ArrayList;
 
 /**
- * La classe Bombe représente une bombe placée dans le jeu du labyrinthe.
- * Elle hérite de la classe Entite et définit le comportement spécifique des bombes, notamment l'explosion et l'impact sur les autres entités.
+ * La classe Bombe représente une bombe placee dans le jeu du labyrinthe.
+ * Elle hérite de la classe Entite et définit le comportement specifique des bombes, notamment l'explosion et l'impact sur les autres entités.
  */
 public class Bombe extends Entite {
     private final Labyrinthe labyrinthe;
@@ -26,7 +26,7 @@ public class Bombe extends Entite {
     }
 
     /**
-     * Vérifie si la bombe a explosé.
+     * Vérifie si la bombe a explose.
      * Si la bombe a explosé, elle impacte les cases autour d'elle et peut affecter les autres entités.
      * @return true si la bombe a explosé, sinon false
      */
@@ -45,7 +45,7 @@ public class Bombe extends Entite {
     }
 
     /**
-     * Détermine les cases qui seront impactées par l'explosion de la bombe.
+     * Détermine les cases qui seront impactees par l'explosion de la bombe.
      */
     private void calculerCasesExplosion() {
         // Récupère les coordonnées x et y de la bombe

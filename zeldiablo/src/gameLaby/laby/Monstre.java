@@ -1,8 +1,9 @@
 package gameLaby.laby;
 
+/**
+ * Classe representant le monstre dans le labyrinthe
+ */
 public class Monstre extends Entite {
-
-    public final static String MONSTRE = "Monstre";
 
     /**
      * Constructeur du monstre

@@ -1,8 +1,10 @@
 package gameLaby.laby;
 
+/**
+ * Classe representant l'amulette dans le labyrinthe
+ */
 public class Amulette extends Entite {
 
-    public final static String AMULETTE = "Amulette";
 
     /**
      * Constructeur de l'amulette

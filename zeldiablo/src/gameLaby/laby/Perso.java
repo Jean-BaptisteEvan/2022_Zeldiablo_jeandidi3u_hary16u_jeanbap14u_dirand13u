@@ -2,10 +2,10 @@ package gameLaby.laby;
 
 import java.util.ArrayList;
 
-import java.util.ArrayList;
-
+/**
+ * Classe qui représente le personnage dans notre labyrinthe
+ */
 public class Perso extends Entite {
-    public final static String PERSONNAGE = "Personnage";
 
     private final ArrayList<Bombe> bombes;
     private int vie;

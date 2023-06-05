@@ -1,6 +1,32 @@
 @startuml
 participant "main" as main
+
+
 participant "laby: Labyrinthe" as laby
-participant "b : Bombe" as bombe
+participant "b : Bombe" as b
+participant "p:Perso" as p
+participant "mf : MurFriable" as mf
+
+main ->laby:poserbombe()
+activate laby
+laby->b : verifierImpactExplosion()
+activate b
+
+b-->laby
+deactivate b
+laby-> p : setVie(-2)
+activate p
+p-->laby
+deactivate p
+
+
+laby -> mf : destruction = true
+activate mf
+mf-->laby
+deactivate mf
+laby-->main
+deactivate laby
+
+
 
 @enduml
