@@ -215,12 +215,15 @@ public class Labyrinthe {
         TrouverAmulette();
     }
 
+<<<<<<< HEAD
 
     /**
      * Vérifie si le monstre est collé au personnage.
      *
      * @return true si le monstre est collé au personnage, false sinon
      */
+=======
+>>>>>>> a4d5cfdbcb13e018a5c2ed47556b8680cd16893c
     private boolean bougLoopCond(int[] suivante) {
         boolean bBouger = true;
         for(Bombe bombe : this.pj.getBombes()){
@@ -238,7 +241,10 @@ public class Labyrinthe {
         return bBouger;
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a4d5cfdbcb13e018a5c2ed47556b8680cd16893c
     public boolean etreColler(){
         Monstre m = this.monstre;
         Perso p = this.pj;
@@ -298,13 +304,23 @@ public class Labyrinthe {
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * return taille selon X
+     *
+>>>>>>> a4d5cfdbcb13e018a5c2ed47556b8680cd16893c
      * @return le nombre de collone du labyrinthe
      */
     public int getLength() {
         return murs.length;
     }
 
+<<<<<<< HEAD
      /**
+=======
+    /**
+     * return mur en (i,j)
+>>>>>>> a4d5cfdbcb13e018a5c2ed47556b8680cd16893c
      * @param x position x d un mur
      * @param y position y d un mur
      * @return un booleen vrai si il y a un mur présent à cet endroit
