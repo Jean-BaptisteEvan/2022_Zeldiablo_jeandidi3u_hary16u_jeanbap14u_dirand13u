@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Bombe extends Entite {
     private final Labyrinthe labyrinthe;
-    private final ArrayList<int[]> casesExplosion;
+    private  ArrayList<int[]> casesExplosion;
     private final long tempsExplosion;
 
     /**

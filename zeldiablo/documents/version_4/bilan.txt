@@ -2,3 +2,7 @@ Clement et Felicien on cree les fonctionnalites de depotbombe , degatbombe, decl
 depot bombe a ete cree en appuyant sur la touche espace la bombe est place et elle ne peuvent pas etre place au meme endroit et ont une limite de 3
 declenchement de bombe a blanc permet de faire quand la bombe est place au bout de 3 seconde la bombe disparait
 ensuite degat bombe complemente bombe a blanc en rajoutant des langue de feu qui permet de detruire les murs et de faire des degats au joueur
+Evan a cree la fonctionalité des murs friables
+les murs friables ont été crée en héritant de la classe abstraite Entite et ont un attribut de destruction
+il a aussi donc aussi mis en place le dessin des murs friables selon leur etat dans LabyDessin
+Evan a du de même mettre en place la prise en compte des murs friables dans le déplacement du perdu et du monstre
