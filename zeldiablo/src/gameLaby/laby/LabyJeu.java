@@ -6,6 +6,9 @@ import moteurJeu.Jeu;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Classe qui permet de faire fonctionner le jeu dans le labyrinthe
+ */
 public class LabyJeu implements Jeu {
     private final Labyrinthe labyrinthe;
 

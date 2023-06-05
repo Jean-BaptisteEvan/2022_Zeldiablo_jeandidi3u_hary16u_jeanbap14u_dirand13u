@@ -1,5 +1,8 @@
 package gameLaby.laby;
 
+/**
+ * Classe representant la case départ dans le labyrinthe
+ */
 public class Depart extends Entite {
 
     /**
