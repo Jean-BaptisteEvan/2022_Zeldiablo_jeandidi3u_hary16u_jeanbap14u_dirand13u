@@ -3,7 +3,6 @@ package gameLaby.laby;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 /**
@@ -89,7 +88,6 @@ public class Labyrinthe {
      * charge le labyrinthe
      *
      * @param nom nom du fichier de labyrinthe
-     * @return labyrinthe cree
      * @throws IOException probleme a la lecture / ouverture
      */
     public Labyrinthe(String nom) throws IOException {
@@ -172,31 +170,19 @@ public class Labyrinthe {
      * deplace le personnage en fonction de l'action.
      * gere la collision avec les murs
      *
-     *
      * @param action une des actions possibles
      *
      */
     public void deplacerEntite(String action) {
         int[] courantePerso = {this.pj.x, this.pj.y};
-        boolean peutBouger = true;
+        boolean peutBouger;
 
         // calcule case suivante
         int[] suivante = getSuivant(courantePerso[0], courantePerso[1], action);
 
         // si c'est ni un mur ni un monstre, on effectue le deplacement du personnage
         if (!this.murs[suivante[0]][suivante[1]] && (this.monstre.getX() != suivante[0] || this.monstre.getY() != suivante[1])) {
-            for(Bombe bombe : this.pj.getBombes()){
-                if(bombe.etrePresent(suivante[0],suivante[1])){
-                    peutBouger = false;
-                }
-            }
-
-            for(int i = 0;i < this.murFriables.size();i++){
-                MurFriable murF = this.murFriables.get(i);
-                if(murF.etrePresent(suivante[0],suivante[1]) && ! murF.etreDetruit() ){
-                    peutBouger = false;
-                }
-            }
+            peutBouger = bougLoopCond(suivante);
         }else{
             peutBouger = false;
         }
@@ -211,23 +197,12 @@ public class Labyrinthe {
             String[] actions = {HAUT, BAS, GAUCHE, DROITE};
             String actionAleatoire = actions[(int) (Math.random() * actions.length)];
             int[] couranteMonstre = {this.monstre.x, this.monstre.y};
-            peutBouger = true;
             //calcule case suivante
             suivante = getSuivant(couranteMonstre[0], couranteMonstre[1], actionAleatoire);
 
             // si c'est ni un mur ni un personnage, on effectue le deplacement du monstre
             if (!this.murs[suivante[0]][suivante[1]] && (this.pj.getX() != suivante[0] || this.pj.getY() != suivante[1])) {
-                for(Bombe bombe : this.pj.getBombes()){
-                    if(bombe.etrePresent(suivante[0],suivante[1])){
-                        peutBouger = false;
-                    }
-                }
-                for(int i = 0;i < this.murFriables.size();i++){
-                    MurFriable murF = this.murFriables.get(i);
-                    if(murF.etrePresent(suivante[0],suivante[1]) && ! murF.etreDetruit() ){
-                        peutBouger = false;
-                    }
-                }
+                peutBouger = bougLoopCond(suivante);
             }else{
                 peutBouger = false;
             }
@@ -241,6 +216,23 @@ public class Labyrinthe {
             this.pj.setAmuletteTrouve(true);
         }
         TrouverAmulette();
+    }
+
+    private boolean bougLoopCond(int[] suivante) {
+        boolean bBouger = true;
+        for(Bombe bombe : this.pj.getBombes()){
+            if(bombe.etrePresent(suivante[0],suivante[1])){
+                bBouger = false;
+            }
+        }
+
+        for(int i = 0;i < this.murFriables.size();i++){
+            MurFriable murF = this.murFriables.get(i);
+            if(murF.etrePresent(suivante[0],suivante[1]) && ! murF.etreDetruit() ){
+                bBouger = false;
+            }
+        }
+        return bBouger;
     }
 
     public boolean etreColler(){
@@ -292,7 +284,7 @@ public class Labyrinthe {
     /**
      * return taille selon Y
      *
-     * @return
+     * @return le nombre de ligne du labyrinthe
      */
     public int getLengthY() {
         return murs[0].length;
@@ -301,7 +293,7 @@ public class Labyrinthe {
     /**
      * return taille selon X
      *
-     * @return
+     * @return le nombre de collone du labyrinthe
      */
     public int getLength() {
         return murs.length;
@@ -309,9 +301,9 @@ public class Labyrinthe {
 
     /**
      * return mur en (i,j)
-     * @param x
-     * @param y
-     * @return
+     * @param x position x d un mur
+     * @param y position y d un mur
+     * @return un booleen vrai si il y a un mur présent à cet endroit
      */
     public boolean getMur(int x, int y) {
         // utilise le tableau de boolean
