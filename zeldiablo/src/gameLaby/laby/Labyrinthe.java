@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Labyrinthe {
 
     /**
-     * Constantes char
+     * Constantes qui repésentes les éléments du labyrinthe
      */
     public static final char MUR = 'X';
     public static final char PJ = 'P';
@@ -31,7 +31,7 @@ public class Labyrinthe {
     public static final String DROITE = "Droite";
 
     /**
-     * attribut du personnage
+     * attribut du labyrinthe
      */
     public Perso pj;
 
@@ -56,9 +56,6 @@ public class Labyrinthe {
      * @param action action effectuee
      * @return case suivante
      */
-
-
-
     static int[] getSuivant(int x, int y, String action) {
         switch (action) {
             case HAUT:
@@ -218,6 +215,15 @@ public class Labyrinthe {
         TrouverAmulette();
     }
 
+<<<<<<< HEAD
+
+    /**
+     * Vérifie si le monstre est collé au personnage.
+     *
+     * @return true si le monstre est collé au personnage, false sinon
+     */
+=======
+>>>>>>> a4d5cfdbcb13e018a5c2ed47556b8680cd16893c
     private boolean bougLoopCond(int[] suivante) {
         boolean bBouger = true;
         for(Bombe bombe : this.pj.getBombes()){
@@ -235,6 +241,10 @@ public class Labyrinthe {
         return bBouger;
     }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> a4d5cfdbcb13e018a5c2ed47556b8680cd16893c
     public boolean etreColler(){
         Monstre m = this.monstre;
         Perso p = this.pj;
@@ -252,12 +262,16 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * Met à jour la position de l'amulette si le personnage a trouvé l'amulette.
+     */
     public void TrouverAmulette(){
         if(this.pj.getAmuletteTrouve()){
             this.amulette.x = this.pj.x;
             this.amulette.y = this.pj.y;
         }
     }
+
 
 
     /**
@@ -282,7 +296,6 @@ public class Labyrinthe {
     // ##################################
 
     /**
-     * return taille selon Y
      *
      * @return le nombre de ligne du labyrinthe
      */
@@ -291,16 +304,23 @@ public class Labyrinthe {
     }
 
     /**
+<<<<<<< HEAD
+=======
      * return taille selon X
      *
+>>>>>>> a4d5cfdbcb13e018a5c2ed47556b8680cd16893c
      * @return le nombre de collone du labyrinthe
      */
     public int getLength() {
         return murs.length;
     }
 
+<<<<<<< HEAD
+     /**
+=======
     /**
      * return mur en (i,j)
+>>>>>>> a4d5cfdbcb13e018a5c2ed47556b8680cd16893c
      * @param x position x d un mur
      * @param y position y d un mur
      * @return un booleen vrai si il y a un mur présent à cet endroit
@@ -310,10 +330,18 @@ public class Labyrinthe {
         return this.murs[x][y];
     }
 
+    /**
+     *
+     * @return La liste des murs friables
+     */
     public ArrayList<MurFriable> getMurFriables() {
         return murFriables;
     }
 
+    /**
+     *
+     * @return Le labyrinthe
+     */
     public Labyrinthe getLabyrinthe() {
         return this;
     }

@@ -1,5 +1,9 @@
 package gameLaby.laby;
 
+/**
+ *Classe abstraite qui représente les entités qui sont dans le labyrinthe
+ */
+
 public abstract class Entite {
 
     /**

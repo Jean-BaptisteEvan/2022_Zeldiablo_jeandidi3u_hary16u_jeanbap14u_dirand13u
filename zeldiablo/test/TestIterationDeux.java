@@ -22,32 +22,46 @@ public class TestIterationDeux {
     }
 
     @Test
-    public void test_initMonstre(){
+    public void test_recupereramulette(){
         try {
+            //initialisation
             LabyJeu jeuLab = new LabyJeu("labySimple/labyTestAmulette.txt",0,0);
-            boolean bPresence = jeuLab.getLabyrinthe().amulette.etrePresent(2,3);
-            assertTrue(bPresence, "l'amulette devrait exister");
+
+
+            //test amulette pas trouvé
+            assertFalse(jeuLab.getLabyrinthe().pj.getAmuletteTrouve(),"L'amulette ne doit pas être trouvé par le joueur");
+
+            //déplacement vers l'amulette
+            jeuLab.getLabyrinthe().deplacerEntite(Labyrinthe.GAUCHE);
+            jeuLab.getLabyrinthe().deplacerEntite(Labyrinthe.GAUCHE);
+
+            //déplacement pour voir si l'amulette a bien les coordonnées du joueur
+            jeuLab.getLabyrinthe().deplacerEntite(Labyrinthe.DROITE);
+
+            //test quand le perso est sur la meme case que l'amulette
+            assertTrue(jeuLab.getLabyrinthe().pj.getAmuletteTrouve(), "l'amulette doit etre récuperer par le joueur");
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Test
-    public void test_recupereramulette(){
+    public void test_victoire(){
         try {
             //initialisation
             LabyJeu jeuLab = new LabyJeu("labySimple/labyTestAmulette.txt",0,0);
-            boolean AmuletteTrouve = jeuLab.getLabyrinthe().pj.getAmuletteTrouve();
-
-            //test amulette pas trouvé
-            assertFalse(AmuletteTrouve,"L'amulette ne doit pas être trouvé par le joueur");
 
             //déplacement vers l'amulette
             jeuLab.getLabyrinthe().deplacerEntite(Labyrinthe.GAUCHE);
             jeuLab.getLabyrinthe().deplacerEntite(Labyrinthe.GAUCHE);
 
-            //test quand le perso est sur la meme case que l'amulette
-            assertTrue(AmuletteTrouve, "l'amulette doit etre récuperer par le joueur");
+            //demi-tour vers la case départ avec l'amulette
+            jeuLab.getLabyrinthe().deplacerEntite(Labyrinthe.DROITE);
+            jeuLab.getLabyrinthe().deplacerEntite(Labyrinthe.DROITE);
+
+            //test le joueur gagne
+            assertTrue(jeuLab.getLabyrinthe().etreFini(), "La partie est gagné");
 
         } catch (IOException e) {
             throw new RuntimeException(e);

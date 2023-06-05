@@ -23,7 +23,7 @@ package gamelaby.laby{
     }
 
 DessinJeu <|.. LabyDessin
-    class LabyJeu{
+    class LabyJeu <<Modifie>>{
         +init()
         +Labyjeu()
         +update(seconds : double, clavier : Clavier)
@@ -50,10 +50,9 @@ LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
         +etrePresent(dx : int, dy :int) : boolean
         + getX() : int
         + getY() : int
-
-
-
     }
+
+
     class Perso <<Modifie>>{
     -vie : int
     -AcAmulette : boolean
@@ -62,6 +61,7 @@ LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
     +setAmuletteTrouve(boolean t) : boolean
     +setVie(pv : int)
     +poserBombe()
+    +supprimerBombe(bombe : bombe)
     +getVie() : int
     +getBombes()
 
@@ -83,11 +83,10 @@ LabyJeu "1" --> "1" Labyrinthe : -labyrinthe
 
     }
     class Bombe<<Nouveau>>{
-
-
-            +Bombe()
-            +aExplose() : int
-
+            +Bombe(casesExplosion ArrayList<int[]>)
+            +aExplose() : boolean
+            +calculerCasesExplosion() :
+            +verifierImpactExplosion():
         }
 
 
