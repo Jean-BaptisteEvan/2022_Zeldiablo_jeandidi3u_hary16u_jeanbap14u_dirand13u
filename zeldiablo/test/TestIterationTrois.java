@@ -96,34 +96,4 @@ public class TestIterationTrois {
         }
     }
 
-//    @Test
-//    public void test_ZoneExplosionBombeAucunMur()throws InterruptedException {
-//        try {
-//            //Initialisation
-//            LabyJeu jeuLab = new LabyJeu("labySimple/labyTestBombe.txt", 0, 0);
-//            Labyrinthe laby = jeuLab.getLabyrinthe();
-//
-//
-//            //Pose de la bombe
-//            laby.pj.poserBombe();
-//
-//            // Attendre l'explosion
-//            Thread.sleep(4000);
-//
-//            ArrayList<Boolean> mursExplose = new ArrayList<Boolean>();
-//
-//
-//            mursExplose.add(laby.getMurFriables().get(1).etreDetruit());
-//
-//
-//
-//            assertFalse(laby.getMurFriables().get(0).etreDetruit(),"Les murs friables sont censé être détruit");
-//
-//
-//        } catch (IOException ex) {
-//            throw new RuntimeException(ex);
-//        }
-
-
-//    }
 }
