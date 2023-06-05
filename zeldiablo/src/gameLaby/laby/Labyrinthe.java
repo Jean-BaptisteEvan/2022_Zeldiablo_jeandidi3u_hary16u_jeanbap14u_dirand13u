@@ -243,6 +243,11 @@ public class Labyrinthe {
         TrouverAmulette();
     }
 
+    /**
+     * Vérifie si le monstre est collé au personnage.
+     *
+     * @return true si le monstre est collé au personnage, false sinon
+     */
     public boolean etreColler(){
         Monstre m = this.monstre;
         Perso p = this.pj;
@@ -260,12 +265,16 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * Met à jour la position de l'amulette si le personnage a trouvé l'amulette.
+     */
     public void TrouverAmulette(){
         if(this.pj.getAmuletteTrouve()){
             this.amulette.x = this.pj.x;
             this.amulette.y = this.pj.y;
         }
     }
+
 
 
     /**
@@ -290,28 +299,26 @@ public class Labyrinthe {
     // ##################################
 
     /**
-     * return taille selon Y
      *
-     * @return
+     * @return taille selon Y
      */
     public int getLengthY() {
         return murs[0].length;
     }
 
     /**
-     * return taille selon X
+     * return
      *
-     * @return
+     * @return taille selon X
      */
     public int getLength() {
         return murs.length;
     }
 
     /**
-     * return mur en (i,j)
      * @param x
      * @param y
-     * @return
+     * @returnmur en (x,y)
      */
     public boolean getMur(int x, int y) {
         // utilise le tableau de boolean
