@@ -3,9 +3,6 @@ package gameLaby.laby;
 import java.util.ArrayList;
 
 public class Perso extends Entite {
-<<<<<<< HEAD
-
->>>>>>> 34882af6d5d2c3d8aee54f59bb56b07d24f17d51
 
     private final ArrayList<Bombe> bombes;
     private int vie;
