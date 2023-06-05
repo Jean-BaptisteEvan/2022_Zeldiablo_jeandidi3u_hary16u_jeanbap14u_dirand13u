@@ -1,0 +1,63 @@
+1. Dégâts d'une bombe
+
+- Descriptif :
+Lorsqu'une bombe explose, des langues de feu jaillissent horizontalement et verticalement et font des dégâts sur les cases atteintes.
+
+Critères de validation
+• La bombe n'est déclenchée que quand son timer arrive à 0.
+• Les langues de feu ne se propagent que horizontalement et verticalement (cf jeu
+bomberman).
+• Les langues de feu ont une taille donnée (par exemple elles ne se propagent que
+de 3 cases dans chaque direction).
+• Les murs et les obstacle bloquent la propagation des langues de feu.
+• Tous les personnages traversés par les langues de feu subissent des dégats.
+
+
+2. Dépôt d'une bombe
+
+- Descriptif :
+Un Héros attaque désormais en posant des bombes sur sa case. Les bombes déposées
+sont en nombre limitées, leur timer est initialisé lorsqu'elles sont posées.
+
+Critères de validation
+• Lorsqu'un héros décide d'attaquer, il pose une bombe sur sa case.
+• Le héros peut sortir de sa case, mais la case de la bombe n'est plus traversable
+tant que la bombe n'a pas explosé.
+• Lorsque le timer de la bombe arrive à 0, la bombe explose et effectue des dégâts
+(cf autres fonctionnalités)
+• Un héros dispose d'un nombre maximal de bombes posées simultanément : il ne
+peut pas poser plus de 3 bombes simultanément sur le labyrinthe.
+• Une fois qu'une bombe a explosé, le héros peut à nouveau poser une bombe en
+remplacement sur le labyrinthe.
+
+
+
+3. Déclenchement de Bombes à blanc
+
+- Descriptif :
+Des bombes sont gérées par le jeu. Elles sont positionnées dans le labyrinthe, elles
+ont un timer, lorsque le temps restant arrive à 0, la bombe explose et disparait.
+
+Critères de validation
+• La bombe est située sur une case vide du jeu.
+• La bombe bloque le passage des joueurs et des monstres.
+• La bombe dispose d'un décompte de temps qui diminue à chaque évolution du
+jeu.
+• Lorsque le décompte arrive à 0, la bombe disparait (cf fonctionnalités dégâts de
+bombe).
+• Le temps restant est affché sur la bombe.
+• Aprés que la bombe ait explosé, la case est à nouveau traversable.
+
+4. Murs friables
+
+- Descriptif :
+Certaines cases du labyrinthe sont des murs friables qui peuvent être détruits par
+des bombes.
+
+Critères de validation
+• Un mur friable est un type de case du labyrinthe.
+• Un mur friable n'est pas traversable (tant qu'il n'est pas détruit).
+• Lorsqu'une explosion de bombe rencontre un mur friable, le mur friable empeche
+la propagation de l'explosion dans cette direction. Il est considéré comme détruit
+et peut être traversé.
+
